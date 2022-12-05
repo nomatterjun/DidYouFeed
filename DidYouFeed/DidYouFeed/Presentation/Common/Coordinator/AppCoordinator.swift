@@ -26,19 +26,28 @@ final class AppCoordinator: Coordinator {
         if UserDefaults.standard.bool(forKey: UserDefaultsKey.isLoggedIn) {
             self.showHomeFlow()
         } else {
-            self.showLoginFlow()
+            // - TODO: Login 구현 후에 showLoginFlow로 교체
+//            self.showLoginFlow()
+            self.showHomeFlow()
         }
     }
     
     func showHomeFlow() {
-        
+        let homeCoordinator = HomeCoordinator(self.navigationController)
+        homeCoordinator.parentCoordinator = self
+        self.childCoordinators.append(homeCoordinator)
+        homeCoordinator.start()
     }
     
     func showLoginFlow() {
         
     }
     
-    func finish() {
-        //
+    func childCoordinatorDidFinish(_ child: Coordinator) {
+        self.childCoordinators.enumerated().forEach { idx, coordinator in
+            if coordinator === child {
+                childCoordinators.remove(at: idx)
+            }
+        }
     }
 }

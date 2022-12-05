@@ -11,6 +11,7 @@ class HomeCoordinator: Coordinator {
     
     // MARK: - Properties
     
+    weak var parentCoordinator: AppCoordinator?
     var navigationController: UINavigationController
     var childCoordinators = [Coordinator]()
     var homeViewController: HomeViewController
@@ -33,6 +34,6 @@ class HomeCoordinator: Coordinator {
     }
     
     func finish() {
-        //
+        self.parentCoordinator?.childCoordinatorDidFinish(self)
     }
 }

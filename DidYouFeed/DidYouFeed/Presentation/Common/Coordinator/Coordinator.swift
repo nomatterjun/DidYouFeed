@@ -14,5 +14,4 @@ protocol Coordinator: AnyObject {
     init(_ navigationController: UINavigationController)
     
     func start()
-    func finish()
 }
