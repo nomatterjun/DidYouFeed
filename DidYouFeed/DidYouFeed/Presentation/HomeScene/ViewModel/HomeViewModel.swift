@@ -10,6 +10,15 @@ import Foundation
 import ReactorKit
 
 final class HomeViewModel: Reactor {
+    
+    // MARK: - Properties
+    
+    weak var coordinator: HomeCoordinator?
+    
+    init(coordinator: HomeCoordinator) {
+        self.coordinator = coordinator
+    }
+    
     enum Action {
         
     }

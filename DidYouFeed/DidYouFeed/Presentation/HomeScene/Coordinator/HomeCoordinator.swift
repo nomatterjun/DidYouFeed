@@ -26,7 +26,9 @@ class HomeCoordinator: Coordinator {
     // MARK: - Functions
     
     func start() {
-        self.homeViewController.reactor = HomeViewModel()
+        self.homeViewController.reactor = HomeViewModel(
+            coordinator: self
+        )
         self.navigationController.pushViewController(
             self.homeViewController,
             animated: true
