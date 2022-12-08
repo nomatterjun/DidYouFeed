@@ -28,10 +28,10 @@ final class HomeViewController: BaseViewController, View {
         }
     }
     
-    private let testButton = UIButton().then {
-        $0.setTitleColor(.blue, for: .normal)
-        $0.setTitle("test", for: .normal)
-    }
+//    private let testButton = UIButton().then {
+//        $0.setTitleColor(.blue, for: .normal)
+//        $0.setTitle("test", for: .normal)
+//    }
     
     private let collectionView = ToDoListCollectionView()
     
@@ -65,10 +65,10 @@ final class HomeViewController: BaseViewController, View {
         
         // Action
         
-        self.testButton.rx.tap
-            .map { Reactor.Action.buttonTap }
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
+//        self.testButton.rx.tap
+//            .map { Reactor.Action.buttonTap }
+//            .bind(to: reactor.action)
+//            .disposed(by: self.disposeBag)
         
     }
 }
@@ -77,7 +77,7 @@ final class HomeViewController: BaseViewController, View {
 private extension HomeViewController {
     
     func configureLayout() {
-        [self.petSelectorView, self.collectionView, self.testButton].forEach {
+        [self.petSelectorView, self.collectionView].forEach {
             self.view.addSubview($0)
         }
     }
@@ -90,10 +90,10 @@ private extension HomeViewController {
         self.collectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
         }
-        self.testButton.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.height.equalTo(100)
-        }
+//        self.testButton.snp.makeConstraints { make in
+//            make.center.equalToSuperview()
+//            make.width.height.equalTo(100)
+//        }
     }
     
     func configureStyles() {
