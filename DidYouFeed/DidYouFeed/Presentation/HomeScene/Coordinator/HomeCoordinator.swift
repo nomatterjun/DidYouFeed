@@ -14,23 +14,20 @@ class HomeCoordinator: Coordinator {
     weak var parentCoordinator: AppCoordinator?
     var navigationController: UINavigationController
     var childCoordinators = [Coordinator]()
-    var homeViewController: HomeViewController
     
     // MARK: - Initializer
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.homeViewController = HomeViewController()
     }
     
     // MARK: - Functions
     
     func start() {
-        self.homeViewController.reactor = HomeViewModel(
-            coordinator: self
-        )
+        let homeViewModel = HomeViewModel(coordinator: self)
+        let homeViewController = HomeViewController(reactor: homeViewModel)
         self.navigationController.pushViewController(
-            self.homeViewController,
+            homeViewController,
             animated: true
         )
     }
