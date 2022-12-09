@@ -11,7 +11,7 @@ import ReactorKit
 import RxDataSources
 import RxSwift
 
-typealias TaskListSection = SectionModel<Int, TaskListCellReactor>
+typealias TaskListSectionModel = SectionModel<Int, TaskListCellReactor>
 
 final class HomeViewReactor: Reactor {
     
@@ -26,12 +26,12 @@ final class HomeViewReactor: Reactor {
     }
     
     enum Mutation {
-        case updateDataSource([TaskListSection])
+        case updateDataSource([TaskListSectionModel])
         case buttonTap
     }
     
     struct State {
-        var taskSections: [TaskListSection]
+        var taskSections: [TaskListSectionModel]
     }
     
     // MARK: - Initializer
@@ -39,7 +39,7 @@ final class HomeViewReactor: Reactor {
     init(coordinator: HomeCoordinator) {
         self.coordinator = coordinator
         self.initialState = State(
-            taskSections: [TaskListSection(model: Int(), items: [])]
+            taskSections: [TaskListSectionModel(model: Int(), items: [])]
         )
     }
     
@@ -53,7 +53,7 @@ final class HomeViewReactor: Reactor {
                     let sectionReactors = tasks.map { task in
                         TaskListCellReactor(task: task)
                     }
-                    let section = TaskListSection(model: Int(), items: sectionReactors)
+                    let section = TaskListSectionModel(model: Int(), items: sectionReactors)
                     return .updateDataSource([section])
                 }
             

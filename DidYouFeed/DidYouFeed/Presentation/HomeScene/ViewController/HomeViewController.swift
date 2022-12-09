@@ -33,7 +33,7 @@ final class HomeViewController: BaseViewController, View {
     
     // MARK: - Properties
     
-    let dataSource = RxCollectionViewSectionedReloadDataSource<TaskListSection>(
+    let dataSource = RxCollectionViewSectionedReloadDataSource<TaskListSectionModel>(
         configureCell: { dataSource, collectionView, indexPath, reactor in
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: TaskListCell.identifier,
