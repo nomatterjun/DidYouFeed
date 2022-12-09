@@ -13,7 +13,7 @@ import SnapKit
 import Then
 
 final class TaskListCell: BaseCollectionViewCell, View {
-    typealias Reactor = TaskListCellViewModel
+    typealias Reactor = TaskListCellReactor
     
     // MARK: - Constants
     
@@ -67,7 +67,7 @@ final class TaskListCell: BaseCollectionViewCell, View {
     
     // MARK: - Binding
     
-    func bind(reactor: TaskListCellViewModel) {
+    func bind(reactor: TaskListCellReactor) {
         self.containerView.backgroundColor = {
             switch reactor.currentState.isDone {
             case true:

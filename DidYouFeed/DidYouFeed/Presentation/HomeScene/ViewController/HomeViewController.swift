@@ -16,7 +16,7 @@ import SnapKit
 import Then
 
 final class HomeViewController: BaseViewController, View {
-    typealias Reactor = HomeViewModel
+    typealias Reactor = HomeViewReactor
     
     // MARK: - Constants
     
@@ -71,7 +71,7 @@ final class HomeViewController: BaseViewController, View {
     
     // MARK: - Initializer
     
-    init(reactor: HomeViewModel) {
+    init(reactor: HomeViewReactor) {
         super.init()
         self.reactor = reactor
     }
@@ -95,7 +95,7 @@ final class HomeViewController: BaseViewController, View {
     
     // MARK: - Binding
     
-    func bind(reactor: HomeViewModel) {
+    func bind(reactor: HomeViewReactor) {
         // DataSource
         self.collectionView.rx.setDelegate(self).disposed(by: self.disposeBag)
         

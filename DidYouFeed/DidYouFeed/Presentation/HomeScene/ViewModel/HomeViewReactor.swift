@@ -5,15 +5,15 @@
 //  Created by 이창준 on 2022/12/05.
 //
 
-import Foundation
+import UIKit
 
 import ReactorKit
 import RxDataSources
 import RxSwift
 
-typealias TaskListSection = SectionModel<Int, TaskListCellViewModel>
+typealias TaskListSection = SectionModel<Int, TaskListCellReactor>
 
-final class HomeViewModel: Reactor {
+final class HomeViewReactor: Reactor {
     
     // MARK: - Properties
     
@@ -51,11 +51,12 @@ final class HomeViewModel: Reactor {
             return MockService.standard.getTaskMock() // - TODO: 실제 데이터 fetch 필요
                 .map { tasks in
                     let sectionReactors = tasks.map { task in
-                        TaskListCellViewModel(task: task)
+                        TaskListCellReactor(task: task)
                     }
                     let section = TaskListSection(model: Int(), items: sectionReactors)
                     return .updateDataSource([section])
                 }
+            
         case .buttonTap:
             return .just(.buttonTap)
         }
