@@ -24,6 +24,7 @@
 		2E6866932941FC3300FBB057 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6866922941FC3300FBB057 /* FloatingButton.swift */; };
 		2E68669C2942CC7100FBB057 /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68669B2942CC7100FBB057 /* MockService.swift */; };
 		2E68669E2943446200FBB057 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68669D2943446200FBB057 /* UserDefaultsService.swift */; };
+		2E6866A02943472300FBB057 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E68669F2943472300FBB057 /* TaskService.swift */; };
 		2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936603293E2D2300840A2A /* UserDefaultsKey.swift */; };
 		2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936609293F124F00840A2A /* UIColor+Hex.swift */; };
 		2E93660C293F155300840A2A /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E93660B293F155300840A2A /* BrandColor.swift */; };
@@ -64,6 +65,7 @@
 		2E6866922941FC3300FBB057 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		2E68669B2942CC7100FBB057 /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		2E68669D2943446200FBB057 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		2E68669F2943472300FBB057 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		2E936603293E2D2300840A2A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		2E936609293F124F00840A2A /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2E93660B293F155300840A2A /* BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColor.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				2E68669B2942CC7100FBB057 /* MockService.swift */,
+				2E68669F2943472300FBB057 /* TaskService.swift */,
 				2E68669D2943446200FBB057 /* UserDefaultsService.swift */,
 			);
 			path = Services;
@@ -408,6 +411,7 @@
 				2EC96963293E20C500775EF1 /* HomeCoordinator.swift in Sources */,
 				2E68667D293F506400FBB057 /* PetSelectorView.swift in Sources */,
 				2EC9695E293E209400775EF1 /* AppCoordinator.swift in Sources */,
+				2E6866A02943472300FBB057 /* TaskService.swift in Sources */,
 				2E68668F2941E12700FBB057 /* BaseCollectionViewCell.swift in Sources */,
 				2E93660C293F155300840A2A /* BrandColor.swift in Sources */,
 				2E686676293F481000FBB057 /* ModalViewController.swift in Sources */,
