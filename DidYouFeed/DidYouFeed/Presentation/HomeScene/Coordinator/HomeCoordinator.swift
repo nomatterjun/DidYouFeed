@@ -24,7 +24,7 @@ class HomeCoordinator: Coordinator {
     // MARK: - Functions
     
     func start() {
-        let homeViewModel = HomeViewModel(coordinator: self)
+        let homeViewModel = HomeViewReactor(coordinator: self)
         let homeViewController = HomeViewController(reactor: homeViewModel)
         self.navigationController.pushViewController(
             homeViewController,
