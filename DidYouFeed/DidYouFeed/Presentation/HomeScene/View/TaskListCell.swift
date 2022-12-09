@@ -27,6 +27,8 @@ final class TaskListCell: BaseCollectionViewCell, View {
         static let dividerRightPadding = 95.0
         static let iconImageLeftPadding = 24.0
         static let labelStackLeftPadding = 16.0
+        static let taskConductorImageSize = 28.0
+        static let taskConductorRightPadding = 12.0
     }
     
     private enum Font {
@@ -82,6 +84,16 @@ final class TaskListCell: BaseCollectionViewCell, View {
         $0.axis = .vertical
     }
     
+    lazy var taskConductorImageView = UIImageView().then {
+        $0.tintColor = .black
+        $0.image = UIImage(systemName: "person.circle.fill")
+        $0.layer.cornerRadius = Metric.taskConductorImageSize / 2
+        $0.clipsToBounds = true
+        $0.snp.makeConstraints { make in
+            make.width.height.equalTo(Metric.taskConductorImageSize)
+        }
+    }
+    
     // MARK: - Initializer
     
     override func configureCell() {
@@ -115,7 +127,7 @@ final class TaskListCell: BaseCollectionViewCell, View {
 private extension TaskListCell {
     
     func configureLayout() {
-        [self.containerView].forEach {
+        [self.containerView, self.taskConductorImageView].forEach {
             self.contentView.addSubview($0)
         }
         [self.dividerView, self.iconImageView,
@@ -147,6 +159,10 @@ private extension TaskListCell {
         self.isDoneIndicatorView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().inset(24)
+        }
+        self.taskConductorImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(self.containerView.snp.leading).inset(-Metric.taskConductorRightPadding)
         }
     }
     

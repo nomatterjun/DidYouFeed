@@ -150,7 +150,7 @@ private extension HomeViewController {
             make.leading.equalToSuperview().inset(24)
         }
         self.collectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.petSelectorView.snp.bottom).offset(24)
+            make.top.equalTo(self.petSelectorView.snp.bottom).offset(12)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(self.bottomMenuView.snp.top)
         }
