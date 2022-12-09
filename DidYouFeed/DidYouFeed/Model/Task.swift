@@ -7,4 +7,5 @@
 
 struct Task {
     var title: String
+    var isDone: Bool
 }

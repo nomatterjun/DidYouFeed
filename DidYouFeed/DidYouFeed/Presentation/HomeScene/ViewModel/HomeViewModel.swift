@@ -11,12 +11,14 @@ import ReactorKit
 import RxDataSources
 import RxSwift
 
+typealias TaskListSection = SectionModel<Int, TaskListCellViewModel>
+
 final class HomeViewModel: Reactor {
     
     // MARK: - Properties
     
     weak var coordinator: HomeCoordinator?
-    var initialState = State()
+    var initialState: State
     
     enum Action {
         case viewDidLoad
@@ -24,21 +26,21 @@ final class HomeViewModel: Reactor {
     }
     
     enum Mutation {
-        case updateDataSource
+        case updateDataSource([TaskListSection])
         case buttonTap
     }
     
     struct State {
-        var taskSection = TaskListSection.TaskSectionModel(
-            model: .section,
-            items: []
-        )
+        var taskSections: [TaskListSection]
     }
     
     // MARK: - Initializer
     
     init(coordinator: HomeCoordinator) {
         self.coordinator = coordinator
+        self.initialState = State(
+            taskSections: [TaskListSection(model: Int(), items: [])]
+        )
     }
     
     // MARK: - Functions
@@ -46,7 +48,14 @@ final class HomeViewModel: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .viewDidLoad:
-            return Observable<Mutation>.just(.updateDataSource)
+            return MockService.standard.getTaskMock() // - TODO: 실제 데이터 fetch 필요
+                .map { tasks in
+                    let sectionReactors = tasks.map { task in
+                        TaskListCellViewModel(task: task)
+                    }
+                    let section = TaskListSection(model: Int(), items: sectionReactors)
+                    return .updateDataSource([section])
+                }
         case .buttonTap:
             return .just(.buttonTap)
         }
@@ -55,11 +64,8 @@ final class HomeViewModel: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         switch mutation {
-        case .updateDataSource:
-            let tasks = getTaskMock()
-            let items = tasks.map(TaskListSection.TaskItem.sectionItem)
-            let sectionModel = TaskListSection.TaskSectionModel(model: .section, items: items)
-            state.taskSection = sectionModel
+        case let .updateDataSource(sections):
+            state.taskSections = sections
         case .buttonTap:
             print("Tapped")
             return state

@@ -23,6 +23,8 @@ final class HomeViewController: BaseViewController, View {
     private enum Metric {
         static let floatingButtonSize = 52.0
         static let floatingButtonBottomPadding = 52.0
+        
+        static let cellHeight = 70.0
     }
     
     private enum Icon {
@@ -31,18 +33,14 @@ final class HomeViewController: BaseViewController, View {
     
     // MARK: - Properties
     
-    let dataSource = RxCollectionViewSectionedReloadDataSource<TaskListSection.TaskSectionModel> { dataSource, collectionView, indexPath, item in
-        switch item {
-        case let .sectionItem(task):
+    let dataSource = RxCollectionViewSectionedReloadDataSource<TaskListSection>(
+        configureCell: { dataSource, collectionView, indexPath, reactor in
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: TaskListCell.identifier,
-                for: indexPath) as? TaskListCell else {
-                return UICollectionViewCell()
-            }
-            cell.titleLabel.text = task.title
+                for: indexPath) as? TaskListCell else { return UICollectionViewCell() }
+            cell.reactor = reactor
             return cell
-        }
-    }
+    })
     
     // MARK: - UI Components
     
@@ -53,17 +51,14 @@ final class HomeViewController: BaseViewController, View {
         }
     }
     
-//    private let testButton = UIButton().then {
-//        $0.setTitleColor(.blue, for: .normal)
-//        $0.setTitle("test", for: .normal)
-//    }
-    
     let collectionViewFlowLayout = UICollectionViewFlowLayout().then {
-        $0.itemSize = CGSize(width: 200, height: 70)
         $0.scrollDirection = .vertical
     }
     
-    lazy var collectionView = TaskListCollectionView(collectionViewLayout: self.collectionViewFlowLayout).then {
+    lazy var collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: self.collectionViewFlowLayout
+    ).then {
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
         $0.register(TaskListCell.self, forCellWithReuseIdentifier: TaskListCell.identifier)
@@ -116,7 +111,7 @@ final class HomeViewController: BaseViewController, View {
             .disposed(by: self.disposeBag)
         
         // State
-        reactor.state.map { [$0.taskSection] }
+        reactor.state.map { $0.taskSections }
             .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
             .disposed(by: self.disposeBag)
     }
@@ -156,7 +151,7 @@ private extension HomeViewController {
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (self.view.window?.windowScene?.screen.bounds.width)!, height: 60)
+        return CGSize(width: (self.view.window?.windowScene?.screen.bounds.width)!, height: Metric.cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

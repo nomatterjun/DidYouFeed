@@ -68,6 +68,14 @@ final class TaskListCell: BaseCollectionViewCell, View {
     // MARK: - Binding
     
     func bind(reactor: TaskListCellViewModel) {
+        self.containerView.backgroundColor = {
+            switch reactor.currentState.isDone {
+            case true:
+                return BrandColor.dfBeige
+            case false:
+                return BrandColor.dfPeach
+            }
+        }()
         self.titleLabel.text = reactor.currentState.title
     }
     
