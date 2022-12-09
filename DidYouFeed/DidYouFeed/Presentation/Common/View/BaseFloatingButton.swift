@@ -46,7 +46,8 @@ class BaseFloatingButton: UIButton {
         }
         
         self.addSubview(self.iconImage)
-        self.iconImage.image = UIImage(systemName: icon)
+        let configuration = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 24, weight: .semibold))
+        self.iconImage.image = UIImage(systemName: icon, withConfiguration: configuration)
         self.iconImage.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }

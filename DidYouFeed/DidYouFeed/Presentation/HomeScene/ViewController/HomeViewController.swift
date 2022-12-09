@@ -52,6 +52,8 @@ final class HomeViewController: BaseViewController, View {
     }
     
     let collectionViewFlowLayout = UICollectionViewFlowLayout().then {
+        $0.sectionInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        $0.minimumLineSpacing = 10
         $0.scrollDirection = .vertical
     }
     
@@ -59,9 +61,17 @@ final class HomeViewController: BaseViewController, View {
         frame: .zero,
         collectionViewLayout: self.collectionViewFlowLayout
     ).then {
+        $0.backgroundColor = .clear
         $0.showsHorizontalScrollIndicator = false
         $0.showsVerticalScrollIndicator = false
         $0.register(TaskListCell.self, forCellWithReuseIdentifier: TaskListCell.identifier)
+    }
+    
+    private let bottomMenuView = UIView().then {
+        $0.backgroundColor = .clear
+        $0.snp.makeConstraints { make in
+            make.height.equalTo(90)
+        }
     }
     
     private let floatingButton = FloatingButton(
@@ -110,6 +120,13 @@ final class HomeViewController: BaseViewController, View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        self.collectionView.rx.itemSelected
+            .map { indexPath in
+                Reactor.Action.toggleTaskDone(indexPath)
+            }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         // State
         reactor.state.map { $0.taskSections }
             .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
@@ -121,24 +138,28 @@ final class HomeViewController: BaseViewController, View {
 private extension HomeViewController {
     
     func configureLayout() {
-        [self.petSelectorView, self.collectionView].forEach {
+        [self.petSelectorView, self.collectionView, self.bottomMenuView].forEach {
             self.view.addSubview($0)
         }
-        self.collectionView.addSubview(self.floatingButton)
+        self.bottomMenuView.addSubview(self.floatingButton)
     }
     
     func configureConstraints() {
         self.petSelectorView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide).inset(24)
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
             make.leading.equalToSuperview().inset(24)
         }
         self.collectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.petSelectorView.snp.bottom)
+            make.top.equalTo(self.petSelectorView.snp.bottom).offset(24)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(self.bottomMenuView.snp.top)
+        }
+        self.bottomMenuView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
         }
         self.floatingButton.snp.makeConstraints { make in
-            make.centerX.equalTo(self.collectionView.frameLayoutGuide)
-            make.bottom.equalTo(self.collectionView.frameLayoutGuide).inset(Metric.floatingButtonBottomPadding)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(8)
         }
     }
     
@@ -152,9 +173,5 @@ private extension HomeViewController {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (self.view.window?.windowScene?.screen.bounds.width)!, height: Metric.cellHeight)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected")
     }
 }

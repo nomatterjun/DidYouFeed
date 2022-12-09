@@ -22,7 +22,7 @@ struct MockService {
     }
     
     func getTaskMock() -> Observable<[Task]> {
-        return .just((1...12).map {
+        return .just((1...9).map {
             Task(
                 title: "title\($0)",
                 isDone: false

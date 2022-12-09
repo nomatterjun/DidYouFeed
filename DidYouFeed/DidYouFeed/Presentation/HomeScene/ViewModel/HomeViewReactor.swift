@@ -23,6 +23,7 @@ final class HomeViewReactor: Reactor {
     enum Action {
         case viewDidLoad
         case buttonTap
+        case toggleTaskDone(IndexPath)
     }
     
     enum Mutation {
@@ -59,6 +60,18 @@ final class HomeViewReactor: Reactor {
             
         case .buttonTap:
             return .just(.buttonTap)
+            
+        case let .toggleTaskDone(indexPath):
+            guard let task = self.currentState.taskSections.first?.items[indexPath.item].currentState else {
+                return Observable.empty()
+            }
+            switch task.isDone {
+            case true:
+                print("Task is done.")
+            case false:
+                print("Task is not done.")
+            }
+            return Observable.empty()
         }
     }
     
