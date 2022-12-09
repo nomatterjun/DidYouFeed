@@ -7,6 +7,8 @@
 
 import Foundation
 
+import RxSwift
+
 struct MockService {
     
     // MARK: - Singleton
@@ -19,9 +21,9 @@ struct MockService {
         
     }
     
-    func getTaskMock() -> [Task] {
-        (1...3).map {
+    func getTaskMock() -> Observable<[Task]> {
+        return .just((1...3).map {
             Task(title: "title\($0)")
-        }
+        })
     }
 }
