@@ -30,6 +30,12 @@
 		2E6866AB29438E9800FBB057 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6866AA29438E9800FBB057 /* FirebaseAuth */; };
 		2E6866AD29438E9800FBB057 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6866AC29438E9800FBB057 /* FirebaseDatabase */; };
 		2E6866AF29438E9800FBB057 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6866AE29438E9800FBB057 /* FirebaseMessaging */; };
+		2E6866B12943936F00FBB057 /* RealtimeDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6866B02943936F00FBB057 /* RealtimeDatabaseService.swift */; };
+		2E6866B5294397B700FBB057 /* TaskDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6866B4294397B700FBB057 /* TaskDTO.swift */; };
+		2E6866B72943B36D00FBB057 /* RealtimeDatabaseKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6866B62943B36D00FBB057 /* RealtimeDatabaseKey.swift */; };
+		2E6866B92943B43700FBB057 /* UserDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6866B82943B43700FBB057 /* UserDataDTO.swift */; };
+		2E6866BD2945E6A500FBB057 /* FirebaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6866BC2945E6A500FBB057 /* FirebaseRepository.swift */; };
+		2E6866BF2945E86900FBB057 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6866BE2945E86900FBB057 /* UserData.swift */; };
 		2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936603293E2D2300840A2A /* UserDefaultsKey.swift */; };
 		2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936609293F124F00840A2A /* UIColor+Hex.swift */; };
 		2E93660C293F155300840A2A /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E93660B293F155300840A2A /* BrandColor.swift */; };
@@ -72,6 +78,12 @@
 		2E68669D2943446200FBB057 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		2E68669F2943472300FBB057 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		2E6866A529438DAA00FBB057 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2E6866B02943936F00FBB057 /* RealtimeDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseService.swift; sourceTree = "<group>"; };
+		2E6866B4294397B700FBB057 /* TaskDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDTO.swift; sourceTree = "<group>"; };
+		2E6866B62943B36D00FBB057 /* RealtimeDatabaseKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeDatabaseKey.swift; sourceTree = "<group>"; };
+		2E6866B82943B43700FBB057 /* UserDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataDTO.swift; sourceTree = "<group>"; };
+		2E6866BC2945E6A500FBB057 /* FirebaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRepository.swift; sourceTree = "<group>"; };
+		2E6866BE2945E86900FBB057 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		2E936603293E2D2300840A2A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		2E936609293F124F00840A2A /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2E93660B293F155300840A2A /* BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColor.swift; sourceTree = "<group>"; };
@@ -130,7 +142,9 @@
 			children = (
 				2EC96952293E19C200775EF1 /* Application */,
 				2E6866862941CFD500FBB057 /* Model */,
+				2E6866B22943978900FBB057 /* Network */,
 				2EC96953293E19D200775EF1 /* Presentation */,
+				2E6866BA2945E67700FBB057 /* Repository */,
 				2EC96954293E19E300775EF1 /* Resources */,
 				2E0F3283293E08F600127438 /* LaunchScreen.storyboard */,
 				2EC96955293E1A0700775EF1 /* Supporting Files */,
@@ -151,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6866872941CFE600FBB057 /* Task.swift */,
+				2E6866BE2945E86900FBB057 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,8 +185,42 @@
 				2E68669B2942CC7100FBB057 /* MockService.swift */,
 				2E68669F2943472300FBB057 /* TaskService.swift */,
 				2E68669D2943446200FBB057 /* UserDefaultsService.swift */,
+				2E6866B02943936F00FBB057 /* RealtimeDatabaseService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		2E6866B22943978900FBB057 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2E6866B3294397AD00FBB057 /* DataMapping */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2E6866B3294397AD00FBB057 /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				2E6866B4294397B700FBB057 /* TaskDTO.swift */,
+				2E6866B82943B43700FBB057 /* UserDataDTO.swift */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		2E6866BA2945E67700FBB057 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				2E6866BB2945E68300FBB057 /* Common */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		2E6866BB2945E68300FBB057 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2E6866BC2945E6A500FBB057 /* FirebaseRepository.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		2E936602293E2B3500840A2A /* ViewModel */ = {
@@ -307,8 +356,9 @@
 		2EC9696C293E26AE00775EF1 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				2E936603293E2D2300840A2A /* UserDefaultsKey.swift */,
 				2E93660B293F155300840A2A /* BrandColor.swift */,
+				2E6866B62943B36D00FBB057 /* RealtimeDatabaseKey.swift */,
+				2E936603293E2D2300840A2A /* UserDefaultsKey.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -431,19 +481,25 @@
 				2E6866A02943472300FBB057 /* TaskService.swift in Sources */,
 				2E68668F2941E12700FBB057 /* BaseCollectionViewCell.swift in Sources */,
 				2E93660C293F155300840A2A /* BrandColor.swift in Sources */,
+				2E6866B72943B36D00FBB057 /* RealtimeDatabaseKey.swift in Sources */,
+				2E6866B92943B43700FBB057 /* UserDataDTO.swift in Sources */,
 				2E686676293F481000FBB057 /* ModalViewController.swift in Sources */,
 				2E68669C2942CC7100FBB057 /* MockService.swift in Sources */,
 				2E68667B293F495000FBB057 /* ModalViewModel.swift in Sources */,
 				2E6866882941CFE600FBB057 /* Task.swift in Sources */,
 				2E0F3279293E08F500127438 /* AppDelegate.swift in Sources */,
+				2E6866BF2945E86900FBB057 /* UserData.swift in Sources */,
 				2E0F327B293E08F500127438 /* SceneDelegate.swift in Sources */,
 				2EC9696A293E235300775EF1 /* HomeViewReactor.swift in Sources */,
+				2E6866B5294397B700FBB057 /* TaskDTO.swift in Sources */,
+				2E6866BD2945E6A500FBB057 /* FirebaseRepository.swift in Sources */,
 				2EC9695C293E208A00775EF1 /* Coordinator.swift in Sources */,
 				2EC96968293E216900775EF1 /* BaseViewController.swift in Sources */,
 				2EC96965293E20F000775EF1 /* HomeViewController.swift in Sources */,
 				2E6866932941FC3300FBB057 /* FloatingButton.swift in Sources */,
 				2E6866852941CA3200FBB057 /* TaskListCell.swift in Sources */,
 				2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */,
+				2E6866B12943936F00FBB057 /* RealtimeDatabaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
