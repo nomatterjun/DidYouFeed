@@ -45,6 +45,9 @@
 		2EC96965293E20F000775EF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC96964293E20F000775EF1 /* HomeViewController.swift */; };
 		2EC96968293E216900775EF1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC96967293E216900775EF1 /* BaseViewController.swift */; };
 		2EC9696A293E235300775EF1 /* HomeViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC96969293E235300775EF1 /* HomeViewReactor.swift */; };
+		2EFA0EF32946049C00B7BED0 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF22946049C00B7BED0 /* LoginCoordinator.swift */; };
+		2EFA0EF7294604D000B7BED0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */; };
+		2EFA0EFA294604FC00B7BED0 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF9294604FC00B7BED0 /* LoginReactor.swift */; };
 		2EFBBC71293E0C1100788B40 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFBBC70293E0C1100788B40 /* Alamofire */; };
 		2EFBBC74293E0C8600788B40 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFBBC73293E0C8600788B40 /* SnapKit */; };
 		2EFBBC77293E0E4A00788B40 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFBBC76293E0E4A00788B40 /* Then */; };
@@ -93,6 +96,9 @@
 		2EC96964293E20F000775EF1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2EC96967293E216900775EF1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2EC96969293E235300775EF1 /* HomeViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewReactor.swift; sourceTree = "<group>"; };
+		2EFA0EF22946049C00B7BED0 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2EFA0EF9294604FC00B7BED0 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +259,7 @@
 			children = (
 				2EC96959293E207D00775EF1 /* Common */,
 				2EC96958293E207400775EF1 /* HomeScene */,
+				2EFA0EF02946046A00B7BED0 /* LoginScene */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -370,6 +377,48 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		2EFA0EF02946046A00B7BED0 /* LoginScene */ = {
+			isa = PBXGroup;
+			children = (
+				2EFA0EF12946048F00B7BED0 /* Coordinator */,
+				2EFA0EF4294604B700B7BED0 /* View */,
+				2EFA0EF5294604BC00B7BED0 /* ViewController */,
+				2EFA0EF8294604EA00B7BED0 /* ViewModel */,
+			);
+			path = LoginScene;
+			sourceTree = "<group>";
+		};
+		2EFA0EF12946048F00B7BED0 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				2EFA0EF22946049C00B7BED0 /* LoginCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		2EFA0EF4294604B700B7BED0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2EFA0EF5294604BC00B7BED0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2EFA0EF8294604EA00B7BED0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2EFA0EF9294604FC00B7BED0 /* LoginReactor.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -482,9 +531,12 @@
 				2E68668F2941E12700FBB057 /* BaseCollectionViewCell.swift in Sources */,
 				2E93660C293F155300840A2A /* BrandColor.swift in Sources */,
 				2E6866B72943B36D00FBB057 /* RealtimeDatabaseKey.swift in Sources */,
+				2EFA0EF7294604D000B7BED0 /* LoginViewController.swift in Sources */,
 				2E6866B92943B43700FBB057 /* UserDataDTO.swift in Sources */,
 				2E686676293F481000FBB057 /* ModalViewController.swift in Sources */,
 				2E68669C2942CC7100FBB057 /* MockService.swift in Sources */,
+				2EFA0EF32946049C00B7BED0 /* LoginCoordinator.swift in Sources */,
+				2EFA0EFA294604FC00B7BED0 /* LoginReactor.swift in Sources */,
 				2E68667B293F495000FBB057 /* ModalViewModel.swift in Sources */,
 				2E6866882941CFE600FBB057 /* Task.swift in Sources */,
 				2E0F3279293E08F500127438 /* AppDelegate.swift in Sources */,

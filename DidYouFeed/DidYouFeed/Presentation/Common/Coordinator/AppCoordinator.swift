@@ -27,8 +27,7 @@ final class AppCoordinator: Coordinator {
             self.showHomeFlow()
         } else {
             // - TODO: Login 구현 후에 showLoginFlow로 교체
-//            self.showLoginFlow()
-            self.showHomeFlow()
+            self.showLoginFlow()
         }
     }
     
@@ -40,7 +39,10 @@ final class AppCoordinator: Coordinator {
     }
     
     func showLoginFlow() {
-        
+        let loginCoordinator = LoginCoordinator(self.navigationController)
+        loginCoordinator.parentCoordinator = self
+        self.childCoordinators.append(loginCoordinator)
+        loginCoordinator.start()
     }
     
     func childCoordinatorDidFinish(_ child: Coordinator) {
