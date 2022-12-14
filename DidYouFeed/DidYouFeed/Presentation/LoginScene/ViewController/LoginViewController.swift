@@ -96,14 +96,7 @@ final class LoginViewController: BaseViewController, View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureLayout()
-        self.configureStyles()
         self.nicknameTextField.becomeFirstResponder()
-    }
-    
-    override func setupConstraints() {
-        super.setupConstraints()
-        self.configureConstraints()
     }
     
     // MARK: - Binding
@@ -119,15 +112,14 @@ final class LoginViewController: BaseViewController, View {
             .disposed(by: self.disposeBag)
 
         self.confirmButton.rx.tap
-            .subscribe(onNext: {
-                print($0)
-            })
+            .map { Reactor.Action.confirmButtonTap }
+            .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         // State
         reactor.state.asObservable().map { $0.validateNickname }
             .subscribe(onNext: { nicknameValidate in
-                switch nicknameValidate { // TODO: 🗑️ 더티 코드 리팩토링
+                switch nicknameValidate {
                 case .upperboundViolated, .lowerboundViolated, .invalid:
                     self.nicknameDescription.isHidden = false
                     self.nicknameDescription.text = nicknameValidate.description
@@ -148,43 +140,49 @@ final class LoginViewController: BaseViewController, View {
     
     // MARK: - Functions
     
+    // MARK: - UI Configuration
     
-}
-
-// MARK: - UI Configuration
-
-private extension LoginViewController {
-    
-    func configureLayout() {
+    override func setupLayouts() {
+        super.setupLayouts()
         [self.titleLabel, self.textFieldStackView,
          self.confirmButton, self.nicknameDescription].forEach {
             self.view.addSubview($0)
         }
     }
     
-    func configureConstraints() {
+    override func setupConstraints() {
+        super.setupConstraints()
+        
         self.titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(Metric.titleLabelInset)
             make.top.equalTo(self.view.safeAreaLayoutGuide).offset(Metric.titleLabelInset)
         }
+        
         self.textFieldStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(Metric.textFieldInset)
             make.top.equalTo(self.titleLabel.snp.bottom).offset(Metric.viewSpacing)
             make.height.greaterThanOrEqualTo(Metric.stackViewMinHeight).priority(.low)
         }
+        
         self.confirmButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(self.textFieldStackView.snp.bottom).offset(Metric.viewSpacing)
         }
+        
         self.nicknameDescription.snp.makeConstraints { make in
             make.leading.equalTo(self.textFieldStackView.snp.leading)
             make.top.equalTo(self.textFieldStackView.snp.bottom).offset(Metric.descriptionSpacing)
         }
     }
     
-    func configureStyles() {
-        self.view.backgroundColor = BrandColor.dfWhite
+    override func setupStyles() {
+        super.setupStyles()
     }
+}
+
+// MARK: - UI Configuration
+
+private extension LoginViewController {
     
     func createTextFieldSection(
         text: String,
