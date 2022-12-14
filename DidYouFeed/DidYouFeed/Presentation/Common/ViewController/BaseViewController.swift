@@ -35,13 +35,24 @@ class BaseViewController: UIViewController {
     
     override func updateViewConstraints() {
         if !self.didSetupConstraints {
+            self.setupLayouts()
             self.setupConstraints()
+            self.setupStyles()
             self.didSetupConstraints = true
         }
         super.updateViewConstraints()
     }
     
+    func setupLayouts() {
+        // override
+    }
+    
     func setupConstraints() {
+        // override
+    }
+    
+    func setupStyles() {
+        self.view.backgroundColor = BrandColor.dfWhite
         // override
     }
 }
