@@ -79,7 +79,7 @@ final class LoginViewController: BaseViewController, View {
         $0.addArrangedSubview(self.nicknameSection)
     }
     
-    private lazy var confirmButton = BaseConfirmButton(title: "완료")
+    private lazy var confirmButton = BaseConfirmButton(title: "다음")
     
     // MARK: - Initializer
     
