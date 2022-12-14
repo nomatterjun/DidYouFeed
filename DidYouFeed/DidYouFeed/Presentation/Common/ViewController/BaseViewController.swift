@@ -31,13 +31,13 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupLayouts()
+        self.setupStyles()
     }
     
     override func updateViewConstraints() {
         if !self.didSetupConstraints {
-            self.setupLayouts()
             self.setupConstraints()
-            self.setupStyles()
             self.didSetupConstraints = true
         }
         super.updateViewConstraints()
