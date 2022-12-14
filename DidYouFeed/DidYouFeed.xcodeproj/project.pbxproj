@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E08529D2949E98200C6AC0C /* BaseOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08529C2949E98200C6AC0C /* BaseOnboardViewController.swift */; };
+		2E08529F294A19C300C6AC0C /* UIButton+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08529E294A19C300C6AC0C /* UIButton+Configuration.swift */; };
 		2E0F3279293E08F500127438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F3278293E08F500127438 /* AppDelegate.swift */; };
 		2E0F327B293E08F500127438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F327A293E08F500127438 /* SceneDelegate.swift */; };
 		2E0F3282293E08F600127438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E0F3281293E08F600127438 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936603293E2D2300840A2A /* UserDefaultsKey.swift */; };
 		2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936609293F124F00840A2A /* UIColor+Hex.swift */; };
 		2E93660C293F155300840A2A /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E93660B293F155300840A2A /* BrandColor.swift */; };
+		2EC2DDAC2949C514003A6219 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DDAB2949C514003A6219 /* JoinViewController.swift */; };
+		2EC2DDAE2949C548003A6219 /* JoinReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DDAD2949C548003A6219 /* JoinReactor.swift */; };
 		2EC9695C293E208A00775EF1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC9695B293E208A00775EF1 /* Coordinator.swift */; };
 		2EC9695E293E209400775EF1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC9695D293E209400775EF1 /* AppCoordinator.swift */; };
 		2EC96963293E20C500775EF1 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC96962293E20C500775EF1 /* HomeCoordinator.swift */; };
@@ -46,7 +50,6 @@
 		2EF2A95029483161003BD4A1 /* FirestoreValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A94F29483161003BD4A1 /* FirestoreValues.swift */; };
 		2EF2A95229483781003BD4A1 /* FamilyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A95129483781003BD4A1 /* FamilyDTO.swift */; };
 		2EF2A954294866B1003BD4A1 /* NicknameValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A953294866B1003BD4A1 /* NicknameValidationState.swift */; };
-		2EF2A9582948B066003BD4A1 /* BaseConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A9572948B066003BD4A1 /* BaseConfirmButton.swift */; };
 		2EF2A95A2948B2D4003BD4A1 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A9592948B2D4003BD4A1 /* UIView+Shadow.swift */; };
 		2EFA0EF32946049C00B7BED0 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF22946049C00B7BED0 /* LoginCoordinator.swift */; };
 		2EFA0EF7294604D000B7BED0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */; };
@@ -64,6 +67,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E08529C2949E98200C6AC0C /* BaseOnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseOnboardViewController.swift; sourceTree = "<group>"; };
+		2E08529E294A19C300C6AC0C /* UIButton+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Configuration.swift"; sourceTree = "<group>"; };
 		2E0F3275293E08F500127438 /* DidYouFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DidYouFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E0F3278293E08F500127438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E0F327A293E08F500127438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +96,8 @@
 		2E936603293E2D2300840A2A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		2E936609293F124F00840A2A /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2E93660B293F155300840A2A /* BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColor.swift; sourceTree = "<group>"; };
+		2EC2DDAB2949C514003A6219 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		2EC2DDAD2949C548003A6219 /* JoinReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinReactor.swift; sourceTree = "<group>"; };
 		2EC9695B293E208A00775EF1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2EC9695D293E209400775EF1 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2EC96962293E20C500775EF1 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -104,7 +111,6 @@
 		2EF2A94F29483161003BD4A1 /* FirestoreValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreValues.swift; sourceTree = "<group>"; };
 		2EF2A95129483781003BD4A1 /* FamilyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyDTO.swift; sourceTree = "<group>"; };
 		2EF2A953294866B1003BD4A1 /* NicknameValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameValidationState.swift; sourceTree = "<group>"; };
-		2EF2A9572948B066003BD4A1 /* BaseConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfirmButton.swift; sourceTree = "<group>"; };
 		2EF2A9592948B2D4003BD4A1 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		2EFA0EF22946049C00B7BED0 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -188,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				2E68668E2941E12700FBB057 /* BaseCollectionViewCell.swift */,
-				2EF2A9572948B066003BD4A1 /* BaseConfirmButton.swift */,
 				2E6866902941F9DE00FBB057 /* BaseFloatingButton.swift */,
 				2EF2A944294817A4003BD4A1 /* BaseTextField.swift */,
 			);
@@ -252,6 +257,7 @@
 		2E936608293F123F00840A2A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2E08529E294A19C300C6AC0C /* UIButton+Configuration.swift */,
 				2E936609293F124F00840A2A /* UIColor+Hex.swift */,
 				2EF2A9592948B2D4003BD4A1 /* UIView+Shadow.swift */,
 			);
@@ -427,6 +433,8 @@
 		2EFA0EF5294604BC00B7BED0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2E08529C2949E98200C6AC0C /* BaseOnboardViewController.swift */,
+				2EC2DDAB2949C514003A6219 /* JoinViewController.swift */,
 				2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */,
 			);
 			path = ViewController;
@@ -435,6 +443,7 @@
 		2EFA0EF8294604EA00B7BED0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2EC2DDAD2949C548003A6219 /* JoinReactor.swift */,
 				2EFA0EF9294604FC00B7BED0 /* LoginReactor.swift */,
 			);
 			path = ViewModel;
@@ -539,6 +548,7 @@
 				2E68668C2941D2A500FBB057 /* TaskListCellReactor.swift in Sources */,
 				2EF2A945294817A4003BD4A1 /* BaseTextField.swift in Sources */,
 				2E6866912941F9DE00FBB057 /* BaseFloatingButton.swift in Sources */,
+				2E08529F294A19C300C6AC0C /* UIButton+Configuration.swift in Sources */,
 				2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */,
 				2E68669E2943446200FBB057 /* UserDefaultsService.swift in Sources */,
 				2EC96963293E20C500775EF1 /* HomeCoordinator.swift in Sources */,
@@ -547,9 +557,10 @@
 				2E6866A02943472300FBB057 /* TaskService.swift in Sources */,
 				2E68668F2941E12700FBB057 /* BaseCollectionViewCell.swift in Sources */,
 				2E93660C293F155300840A2A /* BrandColor.swift in Sources */,
+				2EC2DDAE2949C548003A6219 /* JoinReactor.swift in Sources */,
+				2EC2DDAC2949C514003A6219 /* JoinViewController.swift in Sources */,
 				2EFA0EF7294604D000B7BED0 /* LoginViewController.swift in Sources */,
 				2E6866B92943B43700FBB057 /* UserDataDTO.swift in Sources */,
-				2EF2A9582948B066003BD4A1 /* BaseConfirmButton.swift in Sources */,
 				2E686676293F481000FBB057 /* ModalViewController.swift in Sources */,
 				2EF2A95A2948B2D4003BD4A1 /* UIView+Shadow.swift in Sources */,
 				2E68669C2942CC7100FBB057 /* MockService.swift in Sources */,
@@ -574,6 +585,7 @@
 				2E6866932941FC3300FBB057 /* FloatingButton.swift in Sources */,
 				2E6866852941CA3200FBB057 /* TaskListCell.swift in Sources */,
 				2EF2A954294866B1003BD4A1 /* NicknameValidationState.swift in Sources */,
+				2E08529D2949E98200C6AC0C /* BaseOnboardViewController.swift in Sources */,
 				2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

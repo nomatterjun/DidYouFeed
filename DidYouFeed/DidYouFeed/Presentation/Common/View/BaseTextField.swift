@@ -17,6 +17,7 @@ class BaseTextField: UITextField {
     
     private enum Font {
         static let title = UIFont.systemFont(ofSize: 13, weight: .regular)
+        static let regular = UIFont.systemFont(ofSize: 13, weight: .light)
     }
     
     private enum Color {
@@ -66,10 +67,14 @@ private extension BaseTextField {
     }
     
     func configureStyles() {
+        self.autocorrectionType = .no
+        self.enablesReturnKeyAutomatically = true
+        self.font = Font.regular
         self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.clear.cgColor
         self.layer.cornerRadius = Metric.cornerRadius
         self.borderStyle = .roundedRect
-        self.backgroundColor = Color.backgroundColor
+        self.backgroundColor = BrandColor.dfBeige
         self.font = Font.title
     }
 }

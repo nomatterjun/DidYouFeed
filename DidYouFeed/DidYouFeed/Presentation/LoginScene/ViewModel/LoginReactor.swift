@@ -18,11 +18,13 @@ final class LoginReactor: Reactor {
     
     enum Action {
         case updateNickname(String)
+        case confirmButtonTap
     }
     
     enum Mutation {
         case updateNickname(String)
         case validateNickname(NicknameValidationState)
+        case confirmNickname
     }
     
     struct State {
@@ -48,7 +50,12 @@ final class LoginReactor: Reactor {
         switch action {
         case let .updateNickname(nickname):
             let nicknameValidate = self.validate(nickname: nickname)
-            return Observable.just(.validateNickname(nicknameValidate))
+            return Observable.concat([
+                Observable.just(.validateNickname(nicknameValidate)),
+                Observable.just(.updateNickname(nickname))
+            ])
+        case .confirmButtonTap:
+            return Observable.just(.confirmNickname)
         }
     }
     
@@ -56,9 +63,11 @@ final class LoginReactor: Reactor {
         var newState = state
         switch mutation {
         case let .updateNickname(nickname):
-            print(nickname)
+            newState.nickname = nickname
         case let .validateNickname(nicknameValidate):
             newState.validateNickname = nicknameValidate
+        case .confirmNickname:
+            self.coordinator?.showJoinFlow(for: currentState.nickname)
         }
         return newState
     }

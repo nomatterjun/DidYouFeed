@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let navigationController = UINavigationController()
+        navigationController.navigationBar.tintColor = BrandColor.dfPeach
         
         self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController = navigationController

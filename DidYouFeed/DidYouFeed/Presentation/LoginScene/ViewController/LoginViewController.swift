@@ -13,18 +13,13 @@ import RxSwift
 import SnapKit
 import Then
 
-final class LoginViewController: BaseViewController, View {
+final class LoginViewController: BaseOnboardViewController, View {
     typealias Reactor = LoginReactor
     typealias Available = Bool
     
     // MARK: - Constants
     
-    private enum Constant {
-        static let titleLabelNumberOfLines = 2
-    }
-    
     private enum Metric {
-        static let titleLabelInset = 20.0
         static let viewSpacing = 80.0
         static let textFieldInset = 60.0
         static let stackViewMinHeight = 50.0
@@ -34,36 +29,21 @@ final class LoginViewController: BaseViewController, View {
     }
     
     private enum Font {
-        static let titleLabel = UIFont.systemFont(ofSize: 17.0, weight: .light)
-        static let highlightedTitleLabel = UIFont.systemFont(ofSize: 17.0, weight: .semibold)
-        static let sectionTitle = UIFont.systemFont(ofSize: 13.0, weight: .light)
+        static let regularText = UIFont.systemFont(ofSize: 13.0, weight: .light)
     }
     
     // MARK: - Properties
     
     // MARK: - UI Components
     
-    private lazy var titleLabel = UILabel().then {
-        $0.font = Font.titleLabel
-        $0.numberOfLines = Constant.titleLabelNumberOfLines
-        $0.textAlignment = .center
-        let text = "안녕하세요 펫밀리님.\n당신에 대해 알려주세요."
-        let attributedString = NSMutableAttributedString(string: text)
-        let range = (text as NSString).range(of: "펫밀리")
-        attributedString.addAttribute(.font, value: Font.highlightedTitleLabel, range: range)
-        $0.attributedText = attributedString
-    }
-    
     private lazy var nicknameTextField = BaseTextField().then {
-        $0.font = Font.sectionTitle
-        $0.autocorrectionType = .no
-        $0.enablesReturnKeyAutomatically = true
+        $0.autocapitalizationType = .none
         $0.returnKeyType = .next
         $0.placeholder = "5~20자 이내에 입력해주세요."
     }
     
     private lazy var nicknameDescription = UILabel().then {
-        $0.font = Font.sectionTitle
+        $0.font = Font.regularText
         $0.textColor = .red
     }
     
@@ -79,7 +59,12 @@ final class LoginViewController: BaseViewController, View {
         $0.addArrangedSubview(self.nicknameSection)
     }
     
-    private lazy var confirmButton = BaseConfirmButton(title: "다음")
+    private lazy var confirmButton = UIButton(
+        configuration: .brandStyle(
+            style: .main,
+            title: "다음"
+        )
+    )
     
     // MARK: - Initializer
     
@@ -94,8 +79,8 @@ final class LoginViewController: BaseViewController, View {
     
     // MARK: - Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.nicknameTextField.becomeFirstResponder()
     }
     
@@ -124,15 +109,18 @@ final class LoginViewController: BaseViewController, View {
                     self.nicknameDescription.isHidden = false
                     self.nicknameDescription.text = nicknameValidate.description
                     self.nicknameTextField.isValid = false
-                    self.confirmButton.isAvailable = false
+                    self.confirmButton.isUserInteractionEnabled = false
+                    self.confirmButton.configuration?.updateStyle(to: .disabled)
                 case .empty:
                     self.nicknameDescription.isHidden = true
                     self.nicknameTextField.isValid = true
-                    self.confirmButton.isAvailable = false
+                    self.confirmButton.isUserInteractionEnabled = false
+                    self.confirmButton.configuration?.updateStyle(to: .disabled)
                 case .success:
                     self.nicknameDescription.isHidden = true
                     self.nicknameTextField.isValid = true
-                    self.confirmButton.isAvailable = true
+                    self.confirmButton.isUserInteractionEnabled = true
+                    self.confirmButton.configuration?.updateStyle(to: .main)
                 }
             })
             .disposed(by: self.disposeBag)
@@ -140,11 +128,11 @@ final class LoginViewController: BaseViewController, View {
     
     // MARK: - Functions
     
-    // MARK: - UI Configuration
+    // MARK: - UI Setups
     
     override func setupLayouts() {
         super.setupLayouts()
-        [self.titleLabel, self.textFieldStackView,
+        [self.textFieldStackView,
          self.confirmButton, self.nicknameDescription].forEach {
             self.view.addSubview($0)
         }
@@ -152,11 +140,6 @@ final class LoginViewController: BaseViewController, View {
     
     override func setupConstraints() {
         super.setupConstraints()
-        
-        self.titleLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(Metric.titleLabelInset)
-            make.top.equalTo(self.view.safeAreaLayoutGuide).offset(Metric.titleLabelInset)
-        }
         
         self.textFieldStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(Metric.textFieldInset)
@@ -177,36 +160,6 @@ final class LoginViewController: BaseViewController, View {
     
     override func setupStyles() {
         super.setupStyles()
-    }
-}
-
-// MARK: - UI Configuration
-
-private extension LoginViewController {
-    
-    func createTextFieldSection(
-        text: String,
-        textField: UITextField
-    ) -> UIView {
-        let titleLabel = UILabel().then {
-            $0.font = Font.sectionTitle
-            $0.text = text
-        }
-        
-        let containerView = UIView()
-        
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(textField)
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview()
-        }
-        textField.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(Metric.sectionSpacing)
-            make.leading.trailing.equalToSuperview()
-        }
-        
-        return containerView
     }
 }
 
