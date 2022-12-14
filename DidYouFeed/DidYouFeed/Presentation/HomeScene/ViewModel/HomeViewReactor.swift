@@ -82,30 +82,7 @@ final class HomeViewReactor: Reactor {
             state.taskSections = sections
         case .buttonTap:
             print("Tapped")
-            RealtimeDatabaseService().fetch(of: ["tasks"])
-                .do(onNext: {
-                    print($0)
-                })
-                .subscribe(onNext: { data in
-                    print("fds")
-                    guard let jsonData = try? JSONSerialization.data(
-                        withJSONObject: Array(data.values)
-                    ) else {
-                        print("json")
-                        return
-                    }
-                    guard let decodedData = try? JSONDecoder().decode(
-                        [TaskDTO].self,
-                        from: jsonData
-                    ) else {
-                        print("dec")
-                        return
-                    }
-                    dump(decodedData)
-                }, onError: { error in
-                    print(error)
-                })
-                .disposed(by: DisposeBag())
+            
             return state
         }
         return state

@@ -40,6 +40,7 @@ final class AppCoordinator: Coordinator {
     
     func showLoginFlow() {
         let loginCoordinator = LoginCoordinator(self.navigationController)
+        loginCoordinator.navigationController.isNavigationBarHidden = true
         loginCoordinator.parentCoordinator = self
         self.childCoordinators.append(loginCoordinator)
         loginCoordinator.start()
