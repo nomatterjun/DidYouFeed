@@ -39,7 +39,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func showLoginFlow() {
-        let loginCoordinator = LoginCoordinator(self.navigationController)
+        let loginCoordinator = OnboardCoordinator(self.navigationController)
         loginCoordinator.parentCoordinator = self
         self.childCoordinators.append(loginCoordinator)
         loginCoordinator.start()

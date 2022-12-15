@@ -1,5 +1,5 @@
 //
-//  LoginCoordinator.swift
+//  OnboardCoordinator.swift
 //  DidYouFeed
 //
 //  Created by 이창준 on 2022/12/11.
@@ -9,7 +9,7 @@ import UIKit
 
 import Hero
 
-final class LoginCoordinator: Coordinator {
+final class OnboardCoordinator: Coordinator {
     
     // MARK: - Properties
     
