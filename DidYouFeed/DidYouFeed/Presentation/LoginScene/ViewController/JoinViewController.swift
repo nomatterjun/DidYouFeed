@@ -83,7 +83,12 @@ final class JoinViewController: BaseOnboardViewController, View {
     // MARK: - Binding
     
     func bind(reactor: JoinReactor) {
-        //
+        
+        // Action
+        self.createNewFamilyButton.rx.tap
+            .map { Reactor.Action.newButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
     }
     
     // MARK: - Functions

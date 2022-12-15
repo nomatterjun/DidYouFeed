@@ -49,4 +49,7 @@ final class LoginCoordinator: Coordinator {
         )
     }
     
+    func showNewFamilyFlow() {
+        print("New Family")
+    }
 }

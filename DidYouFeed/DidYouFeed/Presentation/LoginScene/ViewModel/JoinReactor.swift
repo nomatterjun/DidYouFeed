@@ -17,7 +17,11 @@ final class JoinReactor: Reactor {
     var initialState: State
     
     enum Action {
-        
+        case newButtonTap
+    }
+    
+    enum Mutation {
+        case createNewFamily
     }
     
     struct State {
@@ -31,4 +35,21 @@ final class JoinReactor: Reactor {
         self.initialState = State()
     }
     
+    // MARK: - Functions
+    
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .newButtonTap:
+            return Observable.just(.createNewFamily)
+        }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var newState = state
+        switch mutation {
+        case .createNewFamily:
+            self.coordinator?.showNewFamilyFlow()
+        }
+        return newState
+    }
 }
