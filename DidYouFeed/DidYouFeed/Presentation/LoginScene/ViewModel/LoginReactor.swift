@@ -13,7 +13,7 @@ final class LoginReactor: Reactor {
     
     // MARK: - Properties
     
-    weak var coordinator: LoginCoordinator?
+    weak var coordinator: OnboardCoordinator?
     var initialState: State
     
     enum Action {
@@ -39,7 +39,7 @@ final class LoginReactor: Reactor {
     
     // MARK: - Initializer
     
-    init(coordinator: LoginCoordinator) {
+    init(coordinator: OnboardCoordinator) {
         self.coordinator = coordinator
         self.initialState = State(nickname: "")
     }
