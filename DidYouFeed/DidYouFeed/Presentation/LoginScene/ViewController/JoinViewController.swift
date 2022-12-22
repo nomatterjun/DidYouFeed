@@ -22,6 +22,7 @@ final class JoinViewController: BaseOnboardViewController, View {
         static let textFieldInset = 60.0
         static let stackViewMinHeight = 50.0
         static let newButtonSpacing = 8.0
+        static let sectionSpacing = 8.0
     }
     
     private enum Font {
@@ -45,7 +46,6 @@ final class JoinViewController: BaseOnboardViewController, View {
     
     private lazy var textFieldStackView = UIStackView().then {
         $0.axis = .vertical
-        $0.spacing = Metric.stackViewSpacing
         
         $0.addArrangedSubview(self.inviteCodeSection)
     }
@@ -78,6 +78,13 @@ final class JoinViewController: BaseOnboardViewController, View {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.inviteCodeTextField.becomeFirstResponder()
+    }
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        
+        self.inviteCodeSection.spacing = Metric.sectionSpacing
+        self.textFieldStackView.spacing = Metric.stackViewSpacing
     }
     
     // MARK: - Binding

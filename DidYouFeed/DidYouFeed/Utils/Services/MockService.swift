@@ -29,4 +29,17 @@ struct MockService {
             )
         })
     }
+    
+    func getPetMock() -> [Pet] {
+        (1...3).map {
+            Pet(
+                icon: "🐶\($0)",
+                name: "초롬"
+            )
+        }
+    }
+    
+    func getSpeciesMock() -> [String] {
+        Species.allCases.map { $0.emoji }
+    }
 }

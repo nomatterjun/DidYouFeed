@@ -50,6 +50,20 @@ final class OnboardCoordinator: Coordinator {
     }
     
     func showNewFamilyFlow() {
-        print("New Family")
+        let newFamilyReactor = NewFamilyReactor(coordinator: self)
+        let newFamilyViewController = NewFamilyViewController(reactor: newFamilyReactor)
+        newFamilyViewController.titleLabel = newFamilyViewController.createTitleLabel(
+            text: "작은 아기 귀염둥이가 기다려요.\n당신만의 패밀리를 만들어주세요."
+        )
+        self.navigationController.pushViewController(
+            newFamilyViewController,
+            animated: true
+        )
+    }
+    
+    func showAddPetFlow() {
+        let addPetReactor = AddPetReactor(coordinator: self)
+        let addPetViewController = AddPetViewController(modalType: .half, reactor: addPetReactor)
+        self.navigationController.present(addPetViewController, animated: true)
     }
 }

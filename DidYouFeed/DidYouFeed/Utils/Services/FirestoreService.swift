@@ -37,9 +37,30 @@ final class FirestoreService {
                    parameters: nil,
                    encoding: JSONEncoding.prettyPrinted,
                    headers: self.defaultHeaders)
-            .responseDecodable(of: FamilyDTO.self) { response in
-                print(response.value)
+        .responseDecodable(of: FamilyDTO.self) { response in
+            print(response.value)
         }
     }
     
+    func save(family: Family) {
+        let url = FirestoreDefaults.baseURL + FirestoreDefaults.documentsPath
+        + FirestoreCollectionPath.familyPath + "/\(family.fID)"
+        print(url)
+        let payload = FamilyDTO(family: family)
+        let bodyData = [FirestoreField.fields: payload]
+        
+        AF.request(url,
+                   method: .patch,
+                   parameters: bodyData,
+                   encoder: JSONParameterEncoder.json(),
+                   headers: self.defaultHeaders)
+        .response { response in
+            switch response.result {
+            case .success(_):
+                print("Success!")
+            case let .failure(error):
+                print(error)
+            }
+        }
+    }
 }

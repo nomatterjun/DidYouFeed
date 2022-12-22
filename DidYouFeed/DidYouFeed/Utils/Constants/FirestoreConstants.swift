@@ -16,3 +16,8 @@ enum FirestoreDefaults {
 enum FirestoreCollectionPath {
     static let familyPath = "/Family"
 }
+
+enum FirestoreField {
+    /// fields
+    static let fields = "fields"
+}

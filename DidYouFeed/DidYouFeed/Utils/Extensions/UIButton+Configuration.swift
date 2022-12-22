@@ -43,6 +43,9 @@ extension UIButton.Configuration {
         configuration.titleAlignment = .center
         configuration.baseForegroundColor = style.foregroundcolor
         configuration.baseBackgroundColor = style.backgroundColor
+        configuration.imagePlacement = .trailing
+        configuration.imagePadding = 5
+        configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .medium)
         return configuration
     }
     

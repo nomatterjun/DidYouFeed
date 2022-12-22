@@ -19,6 +19,10 @@ final class LoginViewController: BaseOnboardViewController, View {
     
     // MARK: - Constants
     
+    private enum Constant {
+        static let animationDuration = 0.15
+    }
+    
     private enum Metric {
         static let viewSpacing = 80.0
         static let textFieldInset = 60.0
@@ -43,18 +47,19 @@ final class LoginViewController: BaseOnboardViewController, View {
     }
     
     private lazy var nicknameDescription = UILabel().then {
+        $0.text = "."
         $0.font = Font.regularText
         $0.textColor = .red
     }
     
     private lazy var nicknameSection = self.createTextFieldSection(
         text: "당신을 어떻게 불러드릴까요?",
-        textField: self.nicknameTextField
+        textField: self.nicknameTextField,
+        descriptionLabel: self.nicknameDescription
     )
     
-    private lazy var textFieldStackView = UIStackView().then {
+    private lazy var textFieldStackView = UIStackView(frame: .zero).then {
         $0.axis = .vertical
-        $0.spacing = Metric.stackViewSpacing
         
         $0.addArrangedSubview(self.nicknameSection)
     }
@@ -84,6 +89,14 @@ final class LoginViewController: BaseOnboardViewController, View {
         self.nicknameTextField.becomeFirstResponder()
     }
     
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        
+        // Spacing을 StackView의 사이즈가 결정되기 전에 설정하면 constraint 충돌이 일어나 여기에서 설정.
+        self.nicknameSection.spacing = Metric.sectionSpacing
+        self.textFieldStackView.spacing = Metric.stackViewSpacing
+    }
+    
     // MARK: - Binding
     
     func bind(reactor: LoginReactor) {
@@ -101,26 +114,39 @@ final class LoginViewController: BaseOnboardViewController, View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        self.confirmButton.configurationUpdateHandler = { [unowned self] button in
+            var config = button.configuration
+            
+            config?.showsActivityIndicator = (self.reactor?.currentState.validateNickname == .success)
+            button.configuration = config
+        }
+        
         // State
         reactor.state.asObservable().map { $0.validateNickname }
+            .distinctUntilChanged()
             .subscribe(onNext: { nicknameValidate in
                 switch nicknameValidate {
                 case .upperboundViolated, .lowerboundViolated, .invalid:
-                    self.nicknameDescription.isHidden = false
                     self.nicknameDescription.text = nicknameValidate.description
+                    UIView.animate(withDuration: Constant.animationDuration) {
+                        self.nicknameDescription.isHidden = false
+                    }
                     self.nicknameTextField.isValid = false
-                    self.confirmButton.isUserInteractionEnabled = false
-                    self.confirmButton.configuration?.updateStyle(to: .disabled)
                 case .empty:
-                    self.nicknameDescription.isHidden = true
+                    UIView.animate(withDuration: Constant.animationDuration) {
+                        self.nicknameDescription.isHidden = true
+                    }
                     self.nicknameTextField.isValid = true
-                    self.confirmButton.isUserInteractionEnabled = false
-                    self.confirmButton.configuration?.updateStyle(to: .disabled)
                 case .success:
-                    self.nicknameDescription.isHidden = true
+                    UIView.animate(withDuration: Constant.animationDuration) {
+                        self.nicknameDescription.isHidden = true
+                    }
                     self.nicknameTextField.isValid = true
-                    self.confirmButton.isUserInteractionEnabled = true
-                    self.confirmButton.configuration?.updateStyle(to: .main)
+                }
+                
+                // Button Configuration
+                self.confirmButton.configurationUpdateHandler = { button in
+                    button.isEnabled = (nicknameValidate == .success)
                 }
             })
             .disposed(by: self.disposeBag)
@@ -132,8 +158,7 @@ final class LoginViewController: BaseOnboardViewController, View {
     
     override func setupLayouts() {
         super.setupLayouts()
-        [self.textFieldStackView,
-         self.confirmButton, self.nicknameDescription].forEach {
+        [self.textFieldStackView, self.confirmButton].forEach {
             self.view.addSubview($0)
         }
     }
@@ -141,20 +166,18 @@ final class LoginViewController: BaseOnboardViewController, View {
     override func setupConstraints() {
         super.setupConstraints()
         
+        self.nicknameTextField.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+        }
+        
         self.textFieldStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(Metric.textFieldInset)
             make.top.equalTo(self.titleLabel.snp.bottom).offset(Metric.viewSpacing)
-            make.height.greaterThanOrEqualTo(Metric.stackViewMinHeight).priority(.low)
         }
         
         self.confirmButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(self.textFieldStackView.snp.bottom).offset(Metric.viewSpacing)
-        }
-        
-        self.nicknameDescription.snp.makeConstraints { make in
-            make.leading.equalTo(self.textFieldStackView.snp.leading)
-            make.top.equalTo(self.textFieldStackView.snp.bottom).offset(Metric.descriptionSpacing)
         }
     }
     

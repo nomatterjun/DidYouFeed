@@ -46,6 +46,10 @@ struct DoubleValue: Codable {
 struct ArrayValue<T: Codable>: Codable {
     let arrayValue: [String: [T]]
     
+    private enum CodingKeys: String, CodingKey {
+        case arrayValue
+    }
+    
     init(values: [T]) {
         self.arrayValue = ["values": values]
     }
@@ -53,9 +57,5 @@ struct ArrayValue<T: Codable>: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.arrayValue = try container.decode([String: [T]].self, forKey: .arrayValue)
-    }
-    
-    private enum CodingKeys: String, CodingKey {
-        case arrayValue
     }
 }

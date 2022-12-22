@@ -55,28 +55,31 @@ class BaseOnboardViewController: BaseViewController {
     
     func createTextFieldSection(
         text: String,
-        textField: UITextField
-    ) -> UIView {
+        textField: UITextField? = nil,
+        descriptionLabel: UILabel? = nil
+    ) -> UIStackView {
+        // StackView
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .vertical
+        
+        // Title Label
         let titleLabel = UILabel().then {
             $0.font = Font.regularText
             $0.text = text
         }
+        stackView.addArrangedSubview(titleLabel)
         
-        let containerView = UIView()
-        
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(textField)
-        
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.centerX.equalToSuperview()
-        }
-        textField.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(Metric.sectionSpacing)
-            make.leading.trailing.equalToSuperview()
+        // TextField
+        if let textField {
+            stackView.addArrangedSubview(textField)
         }
         
-        return containerView
+        // Description Label
+        if let descriptionLabel {
+            stackView.addArrangedSubview(descriptionLabel)
+        }
+        
+        return stackView
     }
     
     // MARK: - UI Setups
