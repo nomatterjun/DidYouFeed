@@ -17,10 +17,14 @@ final class AddPetReactor: Reactor {
     
     enum Action {
         case viewDidLoad
+        case updateNameTextField(String)
+        case confirmButtonTap
     }
     
     enum Mutation {
         case updateDataSource
+        case updateName(String)
+        case addPetToFamily
     }
     
     struct State {
@@ -28,6 +32,7 @@ final class AddPetReactor: Reactor {
             model: 0,
             items: []
         )
+        var name = ""
     }
     
     var initialState: State
@@ -45,6 +50,10 @@ final class AddPetReactor: Reactor {
         switch action {
         case .viewDidLoad:
             return Observable.just(.updateDataSource)
+        case .updateNameTextField(let name):
+            return Observable.just(.updateName(name))
+        case .confirmButtonTap:
+            return Observable.just(.addPetToFamily)
         }
     }
     
@@ -56,6 +65,10 @@ final class AddPetReactor: Reactor {
             let items = species.map(SpeciesSection.SpeciesItem.specified)
             let sectionModel = SpeciesSection.SpeciesModel(model: 0, items: items)
             newState.speciesSection = sectionModel
+        case .updateName(let name):
+            newState.name = name
+        case .addPetToFamily:
+            print(currentState.name)
         }
         return newState
     }

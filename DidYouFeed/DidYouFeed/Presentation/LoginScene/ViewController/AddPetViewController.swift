@@ -173,6 +173,18 @@ final class AddPetViewController: ModalViewController, View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        self.nameTextField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+            .map { Reactor.Action.updateNameTextField($0) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.confirmButton.rx.tap
+            .map { Reactor.Action.confirmButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         // State
         let dataSource = RxCollectionViewSectionedReloadDataSource<SpeciesSection.SpeciesModel> {
             dataSource, collectionView, indexPath, item in
@@ -191,10 +203,6 @@ final class AddPetViewController: ModalViewController, View {
         reactor.state.asObservable().map { $0.speciesSection }
             .skip(1)
             .map { [$0] }
-            .do(onNext: {
-                print($0)
-                print(dataSource)
-            })
             .bind(to: self.collectionView.rx.items(dataSource: dataSource))
             .disposed(by: self.disposeBag)
     }
