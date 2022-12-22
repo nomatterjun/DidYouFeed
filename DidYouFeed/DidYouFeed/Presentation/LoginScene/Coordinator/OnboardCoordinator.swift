@@ -63,7 +63,17 @@ final class OnboardCoordinator: Coordinator {
     
     func showAddPetFlow() {
         let addPetReactor = AddPetReactor(coordinator: self)
-        let addPetViewController = AddPetViewController(modalType: .half, reactor: addPetReactor)
-        self.navigationController.present(addPetViewController, animated: true)
+        let addPetViewController = AddPetViewController(reactor: addPetReactor)
+        self.navigationController.pushViewController(addPetViewController, animated: true)
+    }
+    
+    func showImagePicker(completion: @escaping (UIImage) -> Void) {
+        let imagePickerCoordinator = DefaultImagePickerCoordinator(self.navigationController)
+        self.childCoordinators.append(imagePickerCoordinator)
+        imagePickerCoordinator.start()
+    }
+    
+    func didFinishPicking(_ image: UIImage) {
+        
     }
 }

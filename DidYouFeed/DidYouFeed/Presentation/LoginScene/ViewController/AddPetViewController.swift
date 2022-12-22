@@ -13,7 +13,7 @@ import RxKeyboard
 import SnapKit
 import Then
 
-final class AddPetViewController: ModalViewController, View {
+final class AddPetViewController: BaseViewController, View {
     typealias Reactor = AddPetReactor
     
     // MARK: - Constants
@@ -84,8 +84,8 @@ final class AddPetViewController: ModalViewController, View {
     
     // MARK: - Initializer
     
-    init(modalType: ModalType, reactor: AddPetReactor) {
-        super.init(modalType: modalType)
+    init(reactor: AddPetReactor) {
+        super.init()
         self.reactor = reactor
     }
     
