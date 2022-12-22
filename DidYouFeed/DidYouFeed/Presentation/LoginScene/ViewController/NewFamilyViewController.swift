@@ -9,6 +9,7 @@ import UIKit
 
 import ReactorKit
 import RxDataSources
+import RxKeyboard
 import RxSwift
 import SnapKit
 import Then
@@ -28,6 +29,7 @@ final class NewFamilyViewController: BaseOnboardViewController, View {
         static let textFieldInset = 60.0
         static let stackViewMinHeight = 50.0
         static let sectionSpacing = 8.0
+        static let confirmButtonBottomOffset = 24.0
     }
     
     // MARK: - Properties
@@ -97,6 +99,12 @@ final class NewFamilyViewController: BaseOnboardViewController, View {
     }
     
     // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.updateKeyboard()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -193,11 +201,31 @@ final class NewFamilyViewController: BaseOnboardViewController, View {
         
         self.confirmButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(self.addPetSection.snp.bottom).offset(Metric.viewSpacing)
         }
     }
     
     override func setupStyles() {
         super.setupStyles()
+    }
+    
+    // MARK: - Keyboard
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    private func updateKeyboard() {
+        RxKeyboard.instance.visibleHeight
+            .distinctUntilChanged()
+            .drive(onNext: { [unowned self] visibleHeight in
+                let safeAreaInset = self.view.safeAreaInsets.bottom > 0 ? self.view.safeAreaInsets.bottom : 34.0
+                let height = visibleHeight > 0 ?
+                    -visibleHeight + safeAreaInset - Metric.confirmButtonBottomOffset : 0
+                self.confirmButton.snp.updateConstraints { make in
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(height)
+                }
+                self.view.layoutIfNeeded()
+            })
+            .disposed(by: self.disposeBag)
     }
 }

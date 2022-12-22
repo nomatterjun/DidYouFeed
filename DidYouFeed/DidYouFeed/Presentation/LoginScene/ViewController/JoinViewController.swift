@@ -8,6 +8,7 @@
 import UIKit
 
 import ReactorKit
+import RxKeyboard
 import RxSwift
 import SnapKit
 
@@ -23,6 +24,7 @@ final class JoinViewController: BaseOnboardViewController, View {
         static let stackViewMinHeight = 50.0
         static let newButtonSpacing = 8.0
         static let sectionSpacing = 8.0
+        static let confirmButtonBottomOffset = 24.0
     }
     
     private enum Font {
@@ -62,6 +64,13 @@ final class JoinViewController: BaseOnboardViewController, View {
         )
     )
     
+    private lazy var confirmButton = UIButton(
+        configuration: .brandStyle(
+            style: .main,
+            title: "다음"
+        )
+    )
+    
     // MARK: - Initializer
     
     init(reactor: JoinReactor) {
@@ -77,7 +86,9 @@ final class JoinViewController: BaseOnboardViewController, View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.inviteCodeTextField.becomeFirstResponder()
+        self.updateKeyboard()
     }
     
     override func updateViewConstraints() {
@@ -105,7 +116,7 @@ final class JoinViewController: BaseOnboardViewController, View {
     override func setupLayouts() {
         super.setupLayouts()
         [self.textFieldStackView, self.createNewFamilyButton,
-         self.createDescriptionLabel].forEach {
+         self.createDescriptionLabel, self.confirmButton].forEach {
             self.view.addSubview($0)
         }
     }
@@ -128,5 +139,31 @@ final class JoinViewController: BaseOnboardViewController, View {
             make.centerX.equalToSuperview()
             make.top.equalTo(self.textFieldStackView.snp.bottom).offset(Metric.viewSpacing)
         }
+        
+        self.confirmButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+//            make.bottom.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Keyboard
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    private func updateKeyboard() {
+        RxKeyboard.instance.visibleHeight
+            .distinctUntilChanged()
+            .drive(onNext: { [unowned self] visibleHeight in
+                let safeAreaInset = self.view.safeAreaInsets.bottom > 0 ? self.view.safeAreaInsets.bottom : 34.0
+                let height = visibleHeight > 0 ?
+                    -visibleHeight + safeAreaInset - Metric.confirmButtonBottomOffset : 0
+                self.confirmButton.snp.updateConstraints { make in
+                    make.bottom.equalTo(self.view.safeAreaLayoutGuide).offset(height)
+                }
+                self.view.layoutIfNeeded()
+            })
+            .disposed(by: self.disposeBag)
     }
 }
