@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 import Hero
 
@@ -13,9 +14,10 @@ final class OnboardCoordinator: Coordinator {
     
     // MARK: - Properties
     
-    weak var parentCoordinator: AppCoordinator?
+    weak var finishDelegate: CoordinatorFinishDelegate?
     var navigationController: UINavigationController
     var childCoordinators = [Coordinator]()
+    var type: CoordinatorType = .onboard
     
     // MARK: - Initializer
     
@@ -62,18 +64,16 @@ final class OnboardCoordinator: Coordinator {
     }
     
     func showAddPetFlow() {
-        let addPetReactor = AddPetReactor(coordinator: self)
-        let addPetViewController = AddPetViewController(reactor: addPetReactor)
-        self.navigationController.pushViewController(addPetViewController, animated: true)
+        let addPetCoordinator = AddPetCoordinator(self.navigationController)
+        self.childCoordinators.append(addPetCoordinator)
+        addPetCoordinator.start()
     }
-    
-    func showImagePicker(completion: @escaping (UIImage) -> Void) {
-        let imagePickerCoordinator = DefaultImagePickerCoordinator(self.navigationController)
-        self.childCoordinators.append(imagePickerCoordinator)
-        imagePickerCoordinator.start()
-    }
-    
-    func didFinishPicking(_ image: UIImage) {
-        
+}
+
+extension OnboardCoordinator: CoordinatorFinishDelegate {
+    func coordinatorDidFinish(childCoordinator: Coordinator) {
+        self.childCoordinators = self.childCoordinators.filter {
+            $0.type != childCoordinator.type
+        }
     }
 }

@@ -48,6 +48,9 @@
 		2E8CA0752953FEE700CF2668 /* AddPetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA0742953FEE700CF2668 /* AddPetReactor.swift */; };
 		2E8CA0782954126300CF2668 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA0772954126300CF2668 /* Differentiator */; };
 		2E8CA07A2954126300CF2668 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA0792954126300CF2668 /* RxDataSources */; };
+		2E8CA0822955B31A00CF2668 /* CoordinatorFinishDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA0812955B31A00CF2668 /* CoordinatorFinishDelegate.swift */; };
+		2E8CA0842955B51B00CF2668 /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA0832955B51B00CF2668 /* CoordinatorType.swift */; };
+		2E8CA08B2955C7EC00CF2668 /* AddPetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA08A2955C7EC00CF2668 /* AddPetCoordinator.swift */; };
 		2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936603293E2D2300840A2A /* UserDefaultsKey.swift */; };
 		2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936609293F124F00840A2A /* UIColor+Hex.swift */; };
 		2E93660C293F155300840A2A /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E93660B293F155300840A2A /* BrandColor.swift */; };
@@ -121,6 +124,9 @@
 		2E8CA07029516F5600CF2668 /* SpeciesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesCell.swift; sourceTree = "<group>"; };
 		2E8CA07229521AB200CF2668 /* SpeciesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesSection.swift; sourceTree = "<group>"; };
 		2E8CA0742953FEE700CF2668 /* AddPetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetReactor.swift; sourceTree = "<group>"; };
+		2E8CA0812955B31A00CF2668 /* CoordinatorFinishDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFinishDelegate.swift; sourceTree = "<group>"; };
+		2E8CA0832955B51B00CF2668 /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
+		2E8CA08A2955C7EC00CF2668 /* AddPetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetCoordinator.swift; sourceTree = "<group>"; };
 		2E936603293E2D2300840A2A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		2E936609293F124F00840A2A /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2E93660B293F155300840A2A /* BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColor.swift; sourceTree = "<group>"; };
@@ -277,6 +283,22 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		2E8CA07F295474FF00CF2668 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2EC9695B293E208A00775EF1 /* Coordinator.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		2E8CA0802955B2ED00CF2668 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2E8CA0812955B31A00CF2668 /* CoordinatorFinishDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		2E936602293E2B3500840A2A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,8 +380,9 @@
 		2EC9695A293E208100775EF1 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				2E8CA0802955B2ED00CF2668 /* Delegate */,
+				2E8CA07F295474FF00CF2668 /* Protocol */,
 				2EC9695D293E209400775EF1 /* AppCoordinator.swift */,
-				2EC9695B293E208A00775EF1 /* Coordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -414,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				2E93660B293F155300840A2A /* BrandColor.swift */,
+				2E8CA0832955B51B00CF2668 /* CoordinatorType.swift */,
 				2E0852A4294B6C3300C6AC0C /* FamilyNameValidationState.swift */,
 				2EF2A94D29482ED0003BD4A1 /* FirestoreConstants.swift */,
 				2E936603293E2D2300840A2A /* UserDefaultsKey.swift */,
@@ -452,6 +476,7 @@
 		2EFA0EF12946048F00B7BED0 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				2E8CA08A2955C7EC00CF2668 /* AddPetCoordinator.swift */,
 				2EFA0EF22946049C00B7BED0 /* OnboardCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -597,11 +622,14 @@
 				2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */,
 				2E68669E2943446200FBB057 /* UserDefaultsService.swift in Sources */,
 				2E8CA07329521AB200CF2668 /* SpeciesSection.swift in Sources */,
+				2E8CA0822955B31A00CF2668 /* CoordinatorFinishDelegate.swift in Sources */,
+				2E8CA08B2955C7EC00CF2668 /* AddPetCoordinator.swift in Sources */,
 				2EC96963293E20C500775EF1 /* HomeCoordinator.swift in Sources */,
 				2E68667D293F506400FBB057 /* PetSelectorView.swift in Sources */,
 				2EC9695E293E209400775EF1 /* AppCoordinator.swift in Sources */,
 				2E6866A02943472300FBB057 /* TaskService.swift in Sources */,
 				2E8CA07129516F5600CF2668 /* SpeciesCell.swift in Sources */,
+				2E8CA0842955B51B00CF2668 /* CoordinatorType.swift in Sources */,
 				2E68668F2941E12700FBB057 /* BaseCollectionViewCell.swift in Sources */,
 				2E93660C293F155300840A2A /* BrandColor.swift in Sources */,
 				2EC2DDAE2949C548003A6219 /* JoinReactor.swift in Sources */,

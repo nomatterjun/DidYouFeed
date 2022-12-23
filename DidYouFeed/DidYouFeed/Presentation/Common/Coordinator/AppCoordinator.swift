@@ -11,8 +11,10 @@ final class AppCoordinator: Coordinator {
     
     // MARK: - Properties
     
+    weak var finishDelegate: CoordinatorFinishDelegate?
     var navigationController: UINavigationController
     var childCoordinators = [Coordinator]()
+    var type: CoordinatorType = .app
     
     // MARK: - Initializer
     
@@ -33,23 +35,13 @@ final class AppCoordinator: Coordinator {
     
     func showHomeFlow() {
         let homeCoordinator = HomeCoordinator(self.navigationController)
-        homeCoordinator.parentCoordinator = self
         self.childCoordinators.append(homeCoordinator)
         homeCoordinator.start()
     }
     
     func showLoginFlow() {
         let loginCoordinator = OnboardCoordinator(self.navigationController)
-        loginCoordinator.parentCoordinator = self
         self.childCoordinators.append(loginCoordinator)
         loginCoordinator.start()
-    }
-    
-    func childCoordinatorDidFinish(_ child: Coordinator) {
-        self.childCoordinators.enumerated().forEach { idx, coordinator in
-            if coordinator === child {
-                childCoordinators.remove(at: idx)
-            }
-        }
     }
 }

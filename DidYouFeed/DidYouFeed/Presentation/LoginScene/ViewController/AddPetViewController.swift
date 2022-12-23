@@ -8,6 +8,7 @@
 import UIKit
 
 import ReactorKit
+import RxCocoa
 import RxDataSources
 import RxKeyboard
 import SnapKit
@@ -19,12 +20,8 @@ final class AddPetViewController: BaseViewController, View {
     // MARK: - Constants
     
     private enum Metric {
-        static let modalViewCornerRadius = 48.0
-        static let modalViewTopInset = 48.0
-        static let modalViewLeadingInset = 24.0
+        static let viewTopInset = 24.0
         static let petImageViewSize = 100.0
-        static let stackViewLeadingOffset = 24.0
-        static let sectionSpacing = 8.0
         static let confirmButtonBottomOffset = 24.0
         static let stackViewSpacing = 12.0
     }
@@ -38,16 +35,18 @@ final class AddPetViewController: BaseViewController, View {
     
     // MARK: - UI Components
     
-    private lazy var petImageView = UIImageView().then {
+    private lazy var petImageButton = UIButton().then {
+        $0.clipsToBounds = true
         $0.layer.cornerRadius = Metric.petImageViewSize / 2
-        $0.backgroundColor = .magenta
+        $0.backgroundColor = BrandColor.dfPink
     }
     
     private lazy var nameTextField = UITextField().then {
         $0.becomeFirstResponder()
         $0.enablesReturnKeyAutomatically = true
         $0.returnKeyType = .done
-        $0.placeholder = "이름"
+        $0.textAlignment = .center
+        $0.placeholder = "이름을 입력해주세요."
         $0.font = Font.nameText
     }
     
@@ -69,7 +68,7 @@ final class AddPetViewController: BaseViewController, View {
         $0.alignment = .center
         $0.axis = .vertical
         
-        $0.addArrangedSubview(self.petImageView)
+        $0.addArrangedSubview(self.petImageButton)
         $0.addArrangedSubview(self.nameTextField)
         $0.addArrangedSubview(self.speciesLabel)
         $0.addArrangedSubview(self.collectionView)
@@ -118,12 +117,12 @@ final class AddPetViewController: BaseViewController, View {
     override func setupConstraints() {
         super.setupConstraints()
         
-        self.petImageView.snp.makeConstraints { make in
+        self.petImageButton.snp.makeConstraints { make in
             make.width.height.equalTo(Metric.petImageViewSize)
         }
         
         self.stackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Metric.modalViewTopInset)
+            make.top.equalTo(self.view.safeAreaLayoutGuide).inset(Metric.viewTopInset)
             make.centerX.equalToSuperview()
             make.width.greaterThanOrEqualTo(Metric.petImageViewSize)
         }
@@ -180,6 +179,11 @@ final class AddPetViewController: BaseViewController, View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        self.petImageButton.rx.tap
+            .map { _ in Reactor.Action.petImageButtonTap }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         self.confirmButton.rx.tap
             .map { Reactor.Action.confirmButtonTap }
             .bind(to: reactor.action)
@@ -204,6 +208,10 @@ final class AddPetViewController: BaseViewController, View {
             .skip(1)
             .map { [$0] }
             .bind(to: self.collectionView.rx.items(dataSource: dataSource))
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.asObservable().map { $0.petImage }
+            .bind(to: self.petImageButton.rx.image())
             .disposed(by: self.disposeBag)
     }
     
