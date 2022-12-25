@@ -28,6 +28,12 @@ struct UserDTO: Codable {
         self.image = try fieldContainer.decode(StringValue.self, forKey: .image)
     }
     
+    init(user: User) {
+        self.uID = StringValue(value: user.uID)
+        self.name = StringValue(value: user.name)
+        self.image = StringValue(value: user.image ?? "")
+    }
+    
     func toDomain() -> User {
         return User(
             name: self.name.value,

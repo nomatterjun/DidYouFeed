@@ -33,4 +33,11 @@ struct PetDTO: Codable {
         self.name = StringValue(value: pet.name)
         self.image = StringValue(value: pet.image ?? "")
     }
+    
+    func toDomain() -> Pet {
+        return Pet(
+            name: self.name.value,
+            image: self.image.value
+        )
+    }
 }
