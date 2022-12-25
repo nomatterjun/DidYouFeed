@@ -88,7 +88,7 @@ final class NewFamilyReactor: Reactor {
                 family: Family(
                     name: self.currentState.familyName,
                     members: ["Mem"],
-                    pets: [Pet()]
+                    pets: ["Pet"]
                 )
             )
             

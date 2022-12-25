@@ -69,14 +69,14 @@ final class AddPetReactor: Reactor {
             
         case .updatePetIcon(let image):
             var pet = currentState.pet
-            pet.picture = image
+            pet.image = image.toString()
             return Observable.concat([
                 Observable.just(.updatePetImage(image)),
                 Observable.just(.updatePet(pet))
             ])
             
         case .petImageButtonTap:
-            if currentState.pet.picture == nil {
+            if currentState.pet.image == nil {
                 print("Picture for pet is not set yet.")
             }
             self.coordinator?.presentImagePicker()
