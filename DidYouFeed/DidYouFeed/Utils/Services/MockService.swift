@@ -33,8 +33,7 @@ struct MockService {
     func getPetMock() -> [Pet] {
         (1...3).map {
             Pet(
-                icon: "🐶\($0)",
-                name: "초롬"
+                name: "초롬\($0)"
             )
         }
     }

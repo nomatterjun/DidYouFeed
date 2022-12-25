@@ -51,6 +51,5 @@ final class PetListCell: BaseTableViewCell {
     
     func setPet(_ pet: Pet) {
         self.nameLabel.text = pet.name
-        self.iconLabel.text = pet.icon
     }
 }

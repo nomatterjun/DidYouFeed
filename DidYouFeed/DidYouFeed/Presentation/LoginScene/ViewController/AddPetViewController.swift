@@ -210,6 +210,13 @@ final class AddPetViewController: BaseViewController, View {
             .bind(to: self.collectionView.rx.items(dataSource: dataSource))
             .disposed(by: self.disposeBag)
         
+        reactor.state.asObservable().map { $0.pet }
+            .distinctUntilChanged()
+            .subscribe(onNext: {
+                print($0)
+            })
+            .disposed(by: self.disposeBag)
+        
         reactor.state.asObservable().map { $0.petImage }
             .bind(to: self.petImageButton.rx.image())
             .disposed(by: self.disposeBag)

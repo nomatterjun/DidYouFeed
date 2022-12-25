@@ -14,21 +14,10 @@ struct Family {
     let pets: [String]
     
     init(
+        fID: String = UUID().uuidString,
         name: String = "",
         members: [String] = [],
         pets: [String] = []
-    ) {
-        self.fID = UUID().uuidString
-        self.name = name
-        self.members = members
-        self.pets = pets
-    }
-    
-    init(
-        fID: String,
-        name: String,
-        members: [String],
-        pets: [String]
     ) {
         self.fID = fID
         self.name = name

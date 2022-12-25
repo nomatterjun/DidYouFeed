@@ -39,7 +39,6 @@ struct FamilyDTO: Codable {
     
     func toDomain() -> Family {
         return Family(
-            fID: self.fID.value,
             name: self.name.value,
             members: self.members.arrayValue["values"]?.compactMap { $0.value } ?? [],
             pets: self.pets.arrayValue["values"]?.compactMap { $0.value } ?? []

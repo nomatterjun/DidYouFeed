@@ -25,9 +25,9 @@ final class AddPetReactor: Reactor {
     
     enum Mutation {
         case updateDataSource(SpeciesSection.SpeciesModel)
-        case updateName(String)
-        case updatePetIcon(UIImage)
-        case addPetToFamily
+        case updatePet(Pet)
+        case updatePetName(String)
+        case updatePetImage(UIImage)
     }
     
     struct State {
@@ -35,6 +35,7 @@ final class AddPetReactor: Reactor {
             model: 0,
             items: []
         )
+        var pet: Pet = Pet()
         var name: String = ""
         var petImage: UIImage = UIImage(named: "PetIconPlaceholder")!
     }
@@ -59,17 +60,31 @@ final class AddPetReactor: Reactor {
             return Observable.just(.updateDataSource(sectionModel))
             
         case .updateNameTextField(let name):
-            return Observable.just(.updateName(name))
+            var pet = currentState.pet
+            pet.name = name
+            return Observable.concat([
+                Observable.just(.updatePetName(name)),
+                Observable.just(.updatePet(pet))
+            ])
             
         case .updatePetIcon(let image):
-            return Observable.just(.updatePetIcon(image))
+            var pet = currentState.pet
+            pet.picture = image
+            return Observable.concat([
+                Observable.just(.updatePetImage(image)),
+                Observable.just(.updatePet(pet))
+            ])
             
         case .petImageButtonTap:
+            if currentState.pet.picture == nil {
+                print("Picture for pet is not set yet.")
+            }
             self.coordinator?.presentImagePicker()
             return Observable<Mutation>.empty()
             
         case .confirmButtonTap:
-            return Observable.just(.addPetToFamily)
+            self.coordinator?.finish()
+            return Observable<Mutation>.empty()
         }
     }
     
@@ -78,15 +93,15 @@ final class AddPetReactor: Reactor {
         switch mutation {
         case .updateDataSource(let sectionModel):
             newState.speciesSection = sectionModel
+
+        case .updatePet(let pet):
+            newState.pet = pet
             
-        case .updateName(let name):
+        case .updatePetName(let name):
             newState.name = name
             
-        case .updatePetIcon(let image):
+        case .updatePetImage(let image):
             newState.petImage = image
-            
-        case .addPetToFamily:
-            print(currentState.name)
         }
         return newState
     }

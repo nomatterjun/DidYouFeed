@@ -41,6 +41,10 @@ final class AddPetCoordinator: Coordinator {
         self.navigationController.pushViewController(addPetViewController, animated: true)
     }
     
+    func finish() {
+        self.finishDelegate?.coordinatorDidFinish(childCoordinator: self)
+    }
+    
     func bind(reactor: AddPetReactor) {
         
         // Action

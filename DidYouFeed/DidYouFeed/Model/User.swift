@@ -1,23 +1,23 @@
 //
-//  Pet.swift
+//  User.swift
 //  DidYouFeed
 //
-//  Created by 이창준 on 2022/12/16.
+//  Created by 이창준 on 2022/12/11.
 //
 
 import Foundation
 
-struct Pet: Equatable {
-    var pID: String
+struct User {
+    var uID: String
     var name: String
     var image: String?
     
     init(
-        pID: String = UUID().uuidString,
+        uID: String = UUID().uuidString,
         name: String = "",
         image: String? = nil
     ) {
-        self.pID = pID
+        self.uID = uID
         self.name = name
         self.image = image
     }
