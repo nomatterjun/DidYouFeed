@@ -5,6 +5,7 @@
 //  Created by 이창준 on 2022/12/22.
 //
 
+import OSLog
 import UIKit
 
 import ReactorKit
@@ -77,7 +78,7 @@ final class AddPetReactor: Reactor {
             
         case .petImageButtonTap:
             if currentState.pet.image == nil {
-                print("Picture for pet is not set yet.")
+                os_log(.info, "Picture for pet is not set yet.")
             }
             self.coordinator?.presentImagePicker()
             return Observable<Mutation>.empty()

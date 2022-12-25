@@ -213,7 +213,7 @@ final class AddPetViewController: BaseViewController, View {
         reactor.state.asObservable().map { $0.pet }
             .distinctUntilChanged()
             .subscribe(onNext: {
-                print($0)
+                print("Pet: \($0)")
             })
             .disposed(by: self.disposeBag)
         

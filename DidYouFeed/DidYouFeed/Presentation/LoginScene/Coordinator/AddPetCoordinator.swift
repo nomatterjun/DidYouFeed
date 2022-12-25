@@ -5,8 +5,9 @@
 //  Created by 이창준 on 2022/12/23.
 //
 
-import UIKit
+import OSLog
 import PhotosUI
+import UIKit
 
 import ReactorKit
 import RxSwift
@@ -78,7 +79,7 @@ extension AddPetCoordinator: PHPickerViewControllerDelegate {
                     self.petImage.accept(image)
                 }
                 if let error {
-                    print(error)
+                    os_log(.error, "\(error)")
                 }
             }
         }
