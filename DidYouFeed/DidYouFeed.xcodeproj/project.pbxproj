@@ -54,6 +54,8 @@
 		2E8CA090295622D300CF2668 /* FirebaseStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA08F295622D300CF2668 /* FirebaseStoreService.swift */; };
 		2E8CA0922958C12A00CF2668 /* PetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA0912958C12A00CF2668 /* PetDTO.swift */; };
 		2E8CA09C2958D7DD00CF2668 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA09B2958D7DD00CF2668 /* FirebaseStorage */; };
+		2E8CA09E2958DC5600CF2668 /* UIImage+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA09D2958DC5600CF2668 /* UIImage+Conversion.swift */; };
+		2E8CA0A02958DCAD00CF2668 /* String+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA09F2958DCAD00CF2668 /* String+Conversion.swift */; };
 		2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936603293E2D2300840A2A /* UserDefaultsKey.swift */; };
 		2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936609293F124F00840A2A /* UIColor+Hex.swift */; };
 		2E93660C293F155300840A2A /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E93660B293F155300840A2A /* BrandColor.swift */; };
@@ -132,6 +134,8 @@
 		2E8CA08A2955C7EC00CF2668 /* AddPetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetCoordinator.swift; sourceTree = "<group>"; };
 		2E8CA08F295622D300CF2668 /* FirebaseStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoreService.swift; sourceTree = "<group>"; };
 		2E8CA0912958C12A00CF2668 /* PetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDTO.swift; sourceTree = "<group>"; };
+		2E8CA09D2958DC5600CF2668 /* UIImage+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Conversion.swift"; sourceTree = "<group>"; };
+		2E8CA09F2958DCAD00CF2668 /* String+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Conversion.swift"; sourceTree = "<group>"; };
 		2E936603293E2D2300840A2A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		2E936609293F124F00840A2A /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2E93660B293F155300840A2A /* BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColor.swift; sourceTree = "<group>"; };
@@ -319,8 +323,10 @@
 			isa = PBXGroup;
 			children = (
 				2E0852A8294C8C2C00C6AC0C /* CGRect+One.swift */,
+				2E8CA09F2958DCAD00CF2668 /* String+Conversion.swift */,
 				2E08529E294A19C300C6AC0C /* UIButton+Configuration.swift */,
 				2E936609293F124F00840A2A /* UIColor+Hex.swift */,
+				2E8CA09D2958DC5600CF2668 /* UIImage+Conversion.swift */,
 				2EF2A9592948B2D4003BD4A1 /* UIView+Shadow.swift */,
 			);
 			path = Extensions;
@@ -632,6 +638,7 @@
 				2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */,
 				2E68669E2943446200FBB057 /* UserDefaultsService.swift in Sources */,
 				2E8CA07329521AB200CF2668 /* SpeciesSection.swift in Sources */,
+				2E8CA0A02958DCAD00CF2668 /* String+Conversion.swift in Sources */,
 				2E8CA0822955B31A00CF2668 /* CoordinatorFinishDelegate.swift in Sources */,
 				2E8CA08B2955C7EC00CF2668 /* AddPetCoordinator.swift in Sources */,
 				2EC96963293E20C500775EF1 /* HomeCoordinator.swift in Sources */,
@@ -680,6 +687,7 @@
 				2EC9695C293E208A00775EF1 /* Coordinator.swift in Sources */,
 				2EC96968293E216900775EF1 /* BaseViewController.swift in Sources */,
 				2EC96965293E20F000775EF1 /* HomeViewController.swift in Sources */,
+				2E8CA09E2958DC5600CF2668 /* UIImage+Conversion.swift in Sources */,
 				2E6866932941FC3300FBB057 /* FloatingButton.swift in Sources */,
 				2E0852A1294B5E6700C6AC0C /* NewFamilyViewController.swift in Sources */,
 				2E6866852941CA3200FBB057 /* TaskListCell.swift in Sources */,
