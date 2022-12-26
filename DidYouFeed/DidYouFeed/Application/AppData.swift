@@ -8,5 +8,11 @@
 struct AppData {
     
     @UserDefault(key: UserDefaultsKey.userData, defaultValue: User())
-    var userData: User
+    static var userData: User
+    
+    @UserDefault(key: UserDefaultsKey.familyData, defaultValue: Family())
+    static var familyData: Family
+    
+    @UserDefault(key: UserDefaultsKey.petsData, defaultValue: [Pet()])
+    static var petsData: [Pet]
 }

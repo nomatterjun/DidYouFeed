@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 import ReactorKit
 
@@ -24,15 +25,14 @@ final class LoginReactor: Reactor {
     enum Mutation {
         case updateNickname(String)
         case validateNickname(NicknameValidationState)
-        case confirmNickname
     }
     
     struct State {
-        var nickname: String
+        var username: String
         var validateNickname: NicknameValidationState
         
-        init(nickname: String) {
-            self.nickname = nickname
+        init(username: String) {
+            self.username = username
             self.validateNickname = .empty
         }
     }
@@ -41,7 +41,7 @@ final class LoginReactor: Reactor {
     
     init(coordinator: OnboardCoordinator) {
         self.coordinator = coordinator
-        self.initialState = State(nickname: "")
+        self.initialState = State(username: "")
     }
     
     // MARK: - Functions
@@ -56,7 +56,10 @@ final class LoginReactor: Reactor {
             ])
             
         case .confirmButtonTap:
-            return Observable.just(.confirmNickname)
+            AppData.userData.name = currentState.username
+            os_log(.info, "Set user's name as \(AppData.userData.name)")
+            self.coordinator?.showJoinFlow(for: currentState.username)
+            return Observable<Mutation>.empty()
         }
     }
     
@@ -65,13 +68,10 @@ final class LoginReactor: Reactor {
         switch mutation {
             
         case .updateNickname(let nickname):
-            newState.nickname = nickname
+            newState.username = nickname
             
         case .validateNickname(let nicknameValidate):
             newState.validateNickname = nicknameValidate
-            
-        case .confirmNickname:
-            self.coordinator?.showJoinFlow(for: currentState.nickname)
         }
         return newState
     }

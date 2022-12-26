@@ -84,6 +84,7 @@ final class AddPetReactor: Reactor {
             return Observable<Mutation>.empty()
             
         case .confirmButtonTap:
+            AppData.petsData.append(currentState.pet)
             self.coordinator?.finish()
             return Observable<Mutation>.empty()
         }

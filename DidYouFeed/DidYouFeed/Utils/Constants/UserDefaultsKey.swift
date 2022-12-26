@@ -10,4 +10,10 @@ enum UserDefaultsKey {
     
     // User
     static let userData = "userData"
+    
+    // Family
+    static let familyData = "familyData"
+    
+    // Pet
+    static let petsData = "petsData"
 }

@@ -41,6 +41,7 @@
 		2E6866BF2945E86900FBB057 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6866BE2945E86900FBB057 /* User.swift */; };
 		2E6A6FE629597874003EFACF /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FE529597874003EFACF /* UserDefault.swift */; };
 		2E6A6FE829598FEF003EFACF /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FE729598FEF003EFACF /* AppData.swift */; };
+		2E6A6FEB2959A0BE003EFACF /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6A6FEA2959A0BE003EFACF /* OrderedCollections */; };
 		2E8CA069294FE6C800CF2668 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA068294FE6C800CF2668 /* RxKeyboard */; };
 		2E8CA06B29509F1C00CF2668 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06A29509F1C00CF2668 /* AddPetViewController.swift */; };
 		2E8CA06D2950AA5500CF2668 /* ModalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06C2950AA5500CF2668 /* ModalType.swift */; };
@@ -174,6 +175,7 @@
 				2E8CA069294FE6C800CF2668 /* RxKeyboard in Frameworks */,
 				2EFBBC7C293E0F0700788B40 /* RxRelay in Frameworks */,
 				2EFBBC84293E0F8000788B40 /* ReactorKit in Frameworks */,
+				2E6A6FEB2959A0BE003EFACF /* OrderedCollections in Frameworks */,
 				2E8CA0782954126300CF2668 /* Differentiator in Frameworks */,
 				2EFBBC71293E0C1100788B40 /* Alamofire in Frameworks */,
 				2EFBBC77293E0E4A00788B40 /* Then in Frameworks */,
@@ -568,6 +570,7 @@
 				2E8CA0772954126300CF2668 /* Differentiator */,
 				2E8CA0792954126300CF2668 /* RxDataSources */,
 				2E8CA09B2958D7DD00CF2668 /* FirebaseStorage */,
+				2E6A6FEA2959A0BE003EFACF /* OrderedCollections */,
 			);
 			productName = DidYouFeed;
 			productReference = 2E0F3275293E08F500127438 /* DidYouFeed.app */;
@@ -609,6 +612,7 @@
 				2E8CA067294FE6C800CF2668 /* XCRemoteSwiftPackageReference "RxKeyboard" */,
 				2E8CA0762954126300CF2668 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				2E8CA09A2958D7DD00CF2668 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2E6A6FE92959A0BE003EFACF /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 2E0F3276293E08F500127438 /* Products */;
 			projectDirPath = "";
@@ -933,6 +937,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		2E6A6FE92959A0BE003EFACF /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		2E8CA067294FE6C800CF2668 /* XCRemoteSwiftPackageReference "RxKeyboard" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxKeyboard";
@@ -1020,6 +1032,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2E68667E293F59E500FBB057 /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
+		};
+		2E6A6FEA2959A0BE003EFACF /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E6A6FE92959A0BE003EFACF /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
 		};
 		2E8CA068294FE6C800CF2668 /* RxKeyboard */ = {
 			isa = XCSwiftPackageProductDependency;

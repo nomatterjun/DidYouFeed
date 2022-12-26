@@ -27,8 +27,6 @@ final class NewFamilyReactor: Reactor {
     enum Mutation {
         case updateFamilyName(String)
         case updateDataSource
-        case showAddPetView
-        case confirmFamilyName
     }
     
     struct State {
@@ -50,27 +48,30 @@ final class NewFamilyReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-            
         case .viewDidLoad:
             return Observable.just(.updateDataSource)
-            
-        case .confirmButtonTap:
-            return Observable.just(.confirmFamilyName)
-            
-        case .addPetButtonTap:
-            return Observable.just(.showAddPetView)
             
         case .updateFamilyName(let familyName):
             let familyNameValidate = self.validate(familyName: familyName)
             return Observable.just(.updateFamilyName(familyName))
             
+        case .addPetButtonTap:
+            self.coordinator?.showAddPetFlow()
+            return Observable<Mutation>.empty()
+            
+        case .confirmButtonTap:
+            AppData.familyData.name = currentState.familyName
+            AppData.familyData.members.append(AppData.userData.uID)
+            AppData.familyData.pets = AppData.petsData.map { $0.pID }
+            print(AppData.familyData)
+            print(AppData.petsData.map {$0.name})
+            return Observable<Mutation>.empty()
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-            
         case .updateFamilyName(let familyName):
             newState.familyName = familyName
             
@@ -79,19 +80,6 @@ final class NewFamilyReactor: Reactor {
             let items = pets.map(PetListSection.PetItem.standard)
             let sectionModel = PetListSection.PetListSectionModel(model: 0, items: items)
             newState.petListSection = sectionModel
-        
-        case .showAddPetView:
-            self.coordinator?.showAddPetFlow()
-            
-        case .confirmFamilyName: // TODO: 데이터 바인딩
-            FirestoreService.standard.save(
-                family: Family(
-                    name: self.currentState.familyName,
-                    members: ["Mem"],
-                    pets: ["Pet"]
-                )
-            )
-            
         }
         return newState
     }
