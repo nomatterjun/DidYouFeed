@@ -210,6 +210,14 @@ final class AddPetViewController: BaseViewController, View {
             .bind(to: self.collectionView.rx.items(dataSource: dataSource))
             .disposed(by: self.disposeBag)
         
+        reactor.state.asObservable().map { $0.validatePetName }
+            .subscribe(onNext: { petNameValidate in
+                self.confirmButton.configurationUpdateHandler = { button in
+                    button.isEnabled = (petNameValidate == .success)
+                }
+            })
+            .disposed(by: self.disposeBag)
+        
         reactor.state.asObservable().map { $0.pet }
             .distinctUntilChanged()
             .subscribe(onNext: {

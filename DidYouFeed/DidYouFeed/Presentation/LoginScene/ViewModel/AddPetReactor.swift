@@ -64,12 +64,19 @@ final class AddPetReactor: Reactor {
             return Observable.just(.updateDataSource(sectionModel))
             
         case .updateNameTextField(let name):
-            var pet = currentState.pet
-            pet.name = name
-            return Observable.concat([
-                Observable.just(.updatePetName(name)),
-                Observable.just(.updatePet(pet))
-            ])
+            let petNameValidate = self.validate(name: name)
+            switch petNameValidate {
+            case .success, .empty:
+                var pet = currentState.pet
+                pet.name = name
+                return Observable.concat([
+                    Observable.just(.validatePetName(petNameValidate)),
+                    Observable.just(.updatePetName(name)),
+                    Observable.just(.updatePet(pet))
+                ])
+            case .invalid, .upperboundViolated:
+                return Observable.just(.validatePetName(petNameValidate))
+            }
             
         case .updatePetIcon(let image):
             var pet = currentState.pet
@@ -109,8 +116,26 @@ final class AddPetReactor: Reactor {
             newState.petImage = image
             
         case .validatePetName(let validate):
-            print(validate.description)
+            newState.validatePetName = validate
         }
         return newState
+    }
+}
+
+extension AddPetReactor: NameValidate {
+    func validate(name: String) -> Validate {
+        guard !name.isEmpty else {
+            return .empty
+        }
+        guard name.count <= 20 else {
+            return .upperboundViolated
+        }
+        guard name.range(of: "^[가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9]*$", options: .regularExpression) != nil else {
+            return .invalid
+        }
+        guard name.range(of: "^[\\S]*$", options: .regularExpression) != nil else {
+            return .invalid
+        }
+        return .success
     }
 }
