@@ -42,6 +42,7 @@
 		2E6A6FE629597874003EFACF /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FE529597874003EFACF /* UserDefault.swift */; };
 		2E6A6FE829598FEF003EFACF /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FE729598FEF003EFACF /* AppData.swift */; };
 		2E6A6FEB2959A0BE003EFACF /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6A6FEA2959A0BE003EFACF /* OrderedCollections */; };
+		2E6A6FED2959A541003EFACF /* NameValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FEC2959A541003EFACF /* NameValidate.swift */; };
 		2E8CA069294FE6C800CF2668 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA068294FE6C800CF2668 /* RxKeyboard */; };
 		2E8CA06B29509F1C00CF2668 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06A29509F1C00CF2668 /* AddPetViewController.swift */; };
 		2E8CA06D2950AA5500CF2668 /* ModalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06C2950AA5500CF2668 /* ModalType.swift */; };
@@ -128,6 +129,7 @@
 		2E6866BE2945E86900FBB057 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2E6A6FE529597874003EFACF /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		2E6A6FE729598FEF003EFACF /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		2E6A6FEC2959A541003EFACF /* NameValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidate.swift; sourceTree = "<group>"; };
 		2E8CA06A29509F1C00CF2668 /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		2E8CA06C2950AA5500CF2668 /* ModalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalType.swift; sourceTree = "<group>"; };
 		2E8CA06E2951684300CF2668 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
@@ -300,6 +302,14 @@
 				2E6866BC2945E6A500FBB057 /* FirebaseRepository.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		2E6A6FEE2959A545003EFACF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2E6A6FEC2959A541003EFACF /* NameValidate.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		2E8CA07F295474FF00CF2668 /* Protocol */ = {
@@ -529,6 +539,7 @@
 		2EFA0EF8294604EA00B7BED0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2E6A6FEE2959A545003EFACF /* Protocol */,
 				2E8CA0742953FEE700CF2668 /* AddPetReactor.swift */,
 				2EC2DDAD2949C548003A6219 /* JoinReactor.swift */,
 				2EFA0EF9294604FC00B7BED0 /* LoginReactor.swift */,
@@ -697,6 +708,7 @@
 				2E0852A9294C8C2C00C6AC0C /* CGRect+One.swift in Sources */,
 				2EC9695C293E208A00775EF1 /* Coordinator.swift in Sources */,
 				2EC96968293E216900775EF1 /* BaseViewController.swift in Sources */,
+				2E6A6FED2959A541003EFACF /* NameValidate.swift in Sources */,
 				2EC96965293E20F000775EF1 /* HomeViewController.swift in Sources */,
 				2E8CA09E2958DC5600CF2668 /* UIImage+Conversion.swift in Sources */,
 				2E6866932941FC3300FBB057 /* FloatingButton.swift in Sources */,

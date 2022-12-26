@@ -11,6 +11,7 @@ import UIKit
 import ReactorKit
 
 final class AddPetReactor: Reactor {
+    typealias Validate = ValidationState.PetName
     
     // MARK: - Properties
     
@@ -29,6 +30,7 @@ final class AddPetReactor: Reactor {
         case updatePet(Pet)
         case updatePetName(String)
         case updatePetImage(UIImage)
+        case validatePetName(Validate)
     }
     
     struct State {
@@ -39,6 +41,7 @@ final class AddPetReactor: Reactor {
         var pet: Pet = Pet()
         var name: String = ""
         var petImage: UIImage = UIImage(named: "PetIconPlaceholder")!
+        var validatePetName: Validate = .empty
     }
     
     var initialState: State
@@ -104,6 +107,9 @@ final class AddPetReactor: Reactor {
             
         case .updatePetImage(let image):
             newState.petImage = image
+            
+        case .validatePetName(let validate):
+            print(validate.description)
         }
         return newState
     }

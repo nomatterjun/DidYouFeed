@@ -50,7 +50,7 @@ final class LoginReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .updateNickname(let nickname):
-            let nicknameValidate = self.validate(nickname: nickname)
+            let nicknameValidate = self.validate(name: nickname)
             return Observable.concat([
                 Observable.just(.validateNickname(nicknameValidate)),
                 Observable.just(.updateNickname(nickname))
@@ -78,21 +78,21 @@ final class LoginReactor: Reactor {
     }
 }
 
-private extension LoginReactor {
-    func validate(nickname: String) -> Validate {
-        guard !nickname.isEmpty else {
+extension LoginReactor: NameValidate {
+    func validate(name: String) -> Validate {
+        guard !name.isEmpty else {
             return .empty
         }
-        guard nickname.count >= 3 else {
+        guard name.count >= 3 else {
             return .lowerboundViolated
         }
-        guard nickname.count <= 20 else {
+        guard name.count <= 20 else {
             return .upperboundViolated
         }
-        guard nickname.range(of: "^[가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9]*$", options: .regularExpression) != nil else {
+        guard name.range(of: "^[가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9]*$", options: .regularExpression) != nil else {
             return .invalid
         }
-        guard nickname.range(of: "^[\\S]*$", options: .regularExpression) != nil else {
+        guard name.range(of: "^[\\S]*$", options: .regularExpression) != nil else {
             return .invalid
         }
         return .success
