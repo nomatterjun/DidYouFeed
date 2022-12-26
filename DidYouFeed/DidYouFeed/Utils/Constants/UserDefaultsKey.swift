@@ -7,4 +7,7 @@
 
 enum UserDefaultsKey {
     static let isLoggedIn = "isLoggedIn"
+    
+    // User
+    static let userData = "userData"
 }
