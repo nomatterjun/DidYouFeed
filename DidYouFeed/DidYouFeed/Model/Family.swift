@@ -6,18 +6,19 @@
 //
 
 import Foundation
+import OrderedCollections
 
 struct Family: Codable {
     let fID: String
     var name: String
     var members: [String] {
         didSet {
-            self.members = Array(Set(oldValue))
+            self.members = Array(OrderedSet(oldValue))
         }
     }
     var pets: [String] {
         didSet {
-            self.pets = Array(Set(oldValue))
+            self.pets = Array(OrderedSet(oldValue))
         }
     }
     
