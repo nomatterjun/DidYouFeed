@@ -48,12 +48,13 @@ final class LoginReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case let .updateNickname(nickname):
+        case .updateNickname(let nickname):
             let nicknameValidate = self.validate(nickname: nickname)
             return Observable.concat([
                 Observable.just(.validateNickname(nicknameValidate)),
                 Observable.just(.updateNickname(nickname))
             ])
+            
         case .confirmButtonTap:
             return Observable.just(.confirmNickname)
         }
@@ -62,10 +63,13 @@ final class LoginReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case let .updateNickname(nickname):
+            
+        case .updateNickname(let nickname):
             newState.nickname = nickname
-        case let .validateNickname(nicknameValidate):
+            
+        case .validateNickname(let nicknameValidate):
             newState.validateNickname = nicknameValidate
+            
         case .confirmNickname:
             self.coordinator?.showJoinFlow(for: currentState.nickname)
         }

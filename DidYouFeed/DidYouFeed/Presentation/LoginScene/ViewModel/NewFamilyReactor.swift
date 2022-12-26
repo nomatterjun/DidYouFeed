@@ -60,7 +60,7 @@ final class NewFamilyReactor: Reactor {
         case .addPetButtonTap:
             return Observable.just(.showAddPetView)
             
-        case let .updateFamilyName(familyName):
+        case .updateFamilyName(let familyName):
             let familyNameValidate = self.validate(familyName: familyName)
             return Observable.just(.updateFamilyName(familyName))
             
@@ -71,7 +71,7 @@ final class NewFamilyReactor: Reactor {
         var newState = state
         switch mutation {
             
-        case let .updateFamilyName(familyName):
+        case .updateFamilyName(let familyName):
             newState.familyName = familyName
             
         case .updateDataSource:
