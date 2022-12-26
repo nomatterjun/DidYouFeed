@@ -9,9 +9,17 @@ import Foundation
 
 struct Family: Codable {
     let fID: String
-    let name: String
-    let members: [String]
-    let pets: [String]
+    var name: String
+    var members: [String] {
+        didSet {
+            self.members = Array(Set(oldValue))
+        }
+    }
+    var pets: [String] {
+        didSet {
+            self.pets = Array(Set(oldValue))
+        }
+    }
     
     init(
         fID: String = UUID().uuidString,
