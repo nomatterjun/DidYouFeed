@@ -66,6 +66,7 @@ final class OnboardCoordinator: Coordinator {
     func showAddPetFlow() {
         let addPetCoordinator = AddPetCoordinator(self.navigationController)
         self.childCoordinators.append(addPetCoordinator)
+        addPetCoordinator.finishDelegate = self
         addPetCoordinator.start()
     }
 }
@@ -75,5 +76,6 @@ extension OnboardCoordinator: CoordinatorFinishDelegate {
         self.childCoordinators = self.childCoordinators.filter {
             $0.type != childCoordinator.type
         }
+        childCoordinator.navigationController.popViewController(animated: true)
     }
 }
