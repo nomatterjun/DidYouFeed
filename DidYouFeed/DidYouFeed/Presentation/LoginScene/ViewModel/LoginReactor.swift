@@ -11,6 +11,7 @@ import OSLog
 import ReactorKit
 
 final class LoginReactor: Reactor {
+    typealias Validate = ValidationState.Nickname
     
     // MARK: - Properties
     
@@ -24,12 +25,12 @@ final class LoginReactor: Reactor {
     
     enum Mutation {
         case updateNickname(String)
-        case validateNickname(NicknameValidationState)
+        case validateNickname(Validate)
     }
     
     struct State {
         var username: String
-        var validateNickname: NicknameValidationState
+        var validateNickname: Validate
         
         init(username: String) {
             self.username = username
@@ -78,7 +79,7 @@ final class LoginReactor: Reactor {
 }
 
 private extension LoginReactor {
-    func validate(nickname: String) -> NicknameValidationState {
+    func validate(nickname: String) -> Validate {
         guard !nickname.isEmpty else {
             return .empty
         }

@@ -76,7 +76,7 @@
 		2EF2A94E29482ED0003BD4A1 /* FirestoreConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A94D29482ED0003BD4A1 /* FirestoreConstants.swift */; };
 		2EF2A95029483161003BD4A1 /* FirestoreValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A94F29483161003BD4A1 /* FirestoreValues.swift */; };
 		2EF2A95229483781003BD4A1 /* FamilyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A95129483781003BD4A1 /* FamilyDTO.swift */; };
-		2EF2A954294866B1003BD4A1 /* NicknameValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A953294866B1003BD4A1 /* NicknameValidationState.swift */; };
+		2EF2A954294866B1003BD4A1 /* ValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A953294866B1003BD4A1 /* ValidationState.swift */; };
 		2EF2A95A2948B2D4003BD4A1 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A9592948B2D4003BD4A1 /* UIView+Shadow.swift */; };
 		2EFA0EF32946049C00B7BED0 /* OnboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF22946049C00B7BED0 /* OnboardCoordinator.swift */; };
 		2EFA0EF7294604D000B7BED0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */; };
@@ -158,7 +158,7 @@
 		2EF2A94D29482ED0003BD4A1 /* FirestoreConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreConstants.swift; sourceTree = "<group>"; };
 		2EF2A94F29483161003BD4A1 /* FirestoreValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreValues.swift; sourceTree = "<group>"; };
 		2EF2A95129483781003BD4A1 /* FamilyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyDTO.swift; sourceTree = "<group>"; };
-		2EF2A953294866B1003BD4A1 /* NicknameValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameValidationState.swift; sourceTree = "<group>"; };
+		2EF2A953294866B1003BD4A1 /* ValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationState.swift; sourceTree = "<group>"; };
 		2EF2A9592948B2D4003BD4A1 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		2EFA0EF22946049C00B7BED0 /* OnboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCoordinator.swift; sourceTree = "<group>"; };
 		2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -464,7 +464,7 @@
 				2EF2A94D29482ED0003BD4A1 /* FirestoreConstants.swift */,
 				2E936603293E2D2300840A2A /* UserDefaultsKey.swift */,
 				2E8CA06C2950AA5500CF2668 /* ModalType.swift */,
-				2EF2A953294866B1003BD4A1 /* NicknameValidationState.swift */,
+				2EF2A953294866B1003BD4A1 /* ValidationState.swift */,
 				2E8CA06E2951684300CF2668 /* Species.swift */,
 			);
 			path = Constants;
@@ -702,7 +702,7 @@
 				2E6866932941FC3300FBB057 /* FloatingButton.swift in Sources */,
 				2E0852A1294B5E6700C6AC0C /* NewFamilyViewController.swift in Sources */,
 				2E6866852941CA3200FBB057 /* TaskListCell.swift in Sources */,
-				2EF2A954294866B1003BD4A1 /* NicknameValidationState.swift in Sources */,
+				2EF2A954294866B1003BD4A1 /* ValidationState.swift in Sources */,
 				2E6A6FE629597874003EFACF /* UserDefault.swift in Sources */,
 				2E08529D2949E98200C6AC0C /* BaseOnboardViewController.swift in Sources */,
 				2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */,
