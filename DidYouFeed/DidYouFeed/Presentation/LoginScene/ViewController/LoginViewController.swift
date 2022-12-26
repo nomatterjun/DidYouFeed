@@ -153,8 +153,10 @@ final class LoginViewController: BaseOnboardViewController, View {
                 }
                 
                 // Button Configuration
-                self.confirmButton.configurationUpdateHandler = { button in
-                    button.isEnabled = (nicknameValidate == .success)
+                DispatchQueue.main.async {
+                    self.confirmButton.configurationUpdateHandler = { button in
+                        button.isEnabled = (nicknameValidate == .success)
+                    }
                 }
             })
             .disposed(by: self.disposeBag)

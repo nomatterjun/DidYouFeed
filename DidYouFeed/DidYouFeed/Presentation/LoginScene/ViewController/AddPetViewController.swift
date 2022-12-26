@@ -212,8 +212,10 @@ final class AddPetViewController: BaseViewController, View {
         
         reactor.state.asObservable().map { $0.validatePetName }
             .subscribe(onNext: { petNameValidate in
-                self.confirmButton.configurationUpdateHandler = { button in
-                    button.isEnabled = (petNameValidate == .success)
+                DispatchQueue.main.async {
+                    self.confirmButton.configurationUpdateHandler = { button in
+                        button.isEnabled = (petNameValidate == .success)
+                    }
                 }
             })
             .disposed(by: self.disposeBag)
