@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Pet: Equatable {
+struct Pet: Equatable, Codable {
     var pID: String
     var name: String
     var image: String?
