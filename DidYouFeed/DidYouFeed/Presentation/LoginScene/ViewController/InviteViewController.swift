@@ -17,6 +17,10 @@ final class InviteViewController: BaseOnboardViewController, View {
     
     // MARK: - Constants
     
+    private enum Constant {
+        static let addIcon = "person.fill.badge.plus"
+    }
+    
     private enum Metric {
         static let stackViewSpacing = 20.0
         static let viewSpacing = 80.0
@@ -58,11 +62,16 @@ final class InviteViewController: BaseOnboardViewController, View {
     }
     
     private lazy var createNewFamilyButton = UIButton(
-        configuration: .brandStyle(
-            style: .sub,
-            title: "새로운 패밀리로 시작하기"
-        )
-    )
+        configuration: .plain()
+    ).then {
+        $0.configuration?.buttonSize = .mini
+        $0.configuration?.attributedTitle = AttributedString("새로운 패밀리로 시작하기")
+        $0.configuration?.baseForegroundColor = BrandColor.dfPeach
+        $0.configuration?.image = UIImage(systemName: Constant.addIcon)
+        $0.configuration?.imagePadding = 5
+        $0.configuration?.imagePlacement = .leading
+        $0.configuration?.titleAlignment = .center
+    }
     
     private lazy var confirmButton = UIButton(
         configuration: .brandStyle(
