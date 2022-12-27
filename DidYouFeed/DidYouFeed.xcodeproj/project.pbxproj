@@ -45,17 +45,17 @@
 		2E6A6FED2959A541003EFACF /* NameValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FEC2959A541003EFACF /* NameValidate.swift */; };
 		2E6A6FF0295B06B5003EFACF /* CoreGraphicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FEF295B06B5003EFACF /* CoreGraphicService.swift */; };
 		2E8CA069294FE6C800CF2668 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA068294FE6C800CF2668 /* RxKeyboard */; };
-		2E8CA06B29509F1C00CF2668 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06A29509F1C00CF2668 /* AddPetViewController.swift */; };
+		2E8CA06B29509F1C00CF2668 /* NewPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06A29509F1C00CF2668 /* NewPetViewController.swift */; };
 		2E8CA06D2950AA5500CF2668 /* ModalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06C2950AA5500CF2668 /* ModalType.swift */; };
 		2E8CA06F2951684300CF2668 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06E2951684300CF2668 /* Species.swift */; };
 		2E8CA07129516F5600CF2668 /* SpeciesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA07029516F5600CF2668 /* SpeciesCell.swift */; };
 		2E8CA07329521AB200CF2668 /* SpeciesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA07229521AB200CF2668 /* SpeciesSection.swift */; };
-		2E8CA0752953FEE700CF2668 /* AddPetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA0742953FEE700CF2668 /* AddPetReactor.swift */; };
+		2E8CA0752953FEE700CF2668 /* NewPetReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA0742953FEE700CF2668 /* NewPetReactor.swift */; };
 		2E8CA0782954126300CF2668 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA0772954126300CF2668 /* Differentiator */; };
 		2E8CA07A2954126300CF2668 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA0792954126300CF2668 /* RxDataSources */; };
 		2E8CA0822955B31A00CF2668 /* CoordinatorFinishDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA0812955B31A00CF2668 /* CoordinatorFinishDelegate.swift */; };
 		2E8CA0842955B51B00CF2668 /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA0832955B51B00CF2668 /* CoordinatorType.swift */; };
-		2E8CA08B2955C7EC00CF2668 /* AddPetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA08A2955C7EC00CF2668 /* AddPetCoordinator.swift */; };
+		2E8CA08B2955C7EC00CF2668 /* NewPetCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA08A2955C7EC00CF2668 /* NewPetCoordinator.swift */; };
 		2E8CA090295622D300CF2668 /* FirebaseStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA08F295622D300CF2668 /* FirebaseStoreService.swift */; };
 		2E8CA0922958C12A00CF2668 /* PetDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA0912958C12A00CF2668 /* PetDTO.swift */; };
 		2E8CA09C2958D7DD00CF2668 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA09B2958D7DD00CF2668 /* FirebaseStorage */; };
@@ -64,8 +64,8 @@
 		2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936603293E2D2300840A2A /* UserDefaultsKey.swift */; };
 		2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936609293F124F00840A2A /* UIColor+Hex.swift */; };
 		2E93660C293F155300840A2A /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E93660B293F155300840A2A /* BrandColor.swift */; };
-		2EC2DDAC2949C514003A6219 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DDAB2949C514003A6219 /* JoinViewController.swift */; };
-		2EC2DDAE2949C548003A6219 /* JoinReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DDAD2949C548003A6219 /* JoinReactor.swift */; };
+		2EC2DDAC2949C514003A6219 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DDAB2949C514003A6219 /* InviteViewController.swift */; };
+		2EC2DDAE2949C548003A6219 /* InviteReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DDAD2949C548003A6219 /* InviteReactor.swift */; };
 		2EC9695C293E208A00775EF1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC9695B293E208A00775EF1 /* Coordinator.swift */; };
 		2EC9695E293E209400775EF1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC9695D293E209400775EF1 /* AppCoordinator.swift */; };
 		2EC96963293E20C500775EF1 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC96962293E20C500775EF1 /* HomeCoordinator.swift */; };
@@ -81,8 +81,8 @@
 		2EF2A954294866B1003BD4A1 /* ValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A953294866B1003BD4A1 /* ValidationState.swift */; };
 		2EF2A95A2948B2D4003BD4A1 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A9592948B2D4003BD4A1 /* UIView+Shadow.swift */; };
 		2EFA0EF32946049C00B7BED0 /* OnboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF22946049C00B7BED0 /* OnboardCoordinator.swift */; };
-		2EFA0EF7294604D000B7BED0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */; };
-		2EFA0EFA294604FC00B7BED0 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF9294604FC00B7BED0 /* LoginReactor.swift */; };
+		2EFA0EF7294604D000B7BED0 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF6294604D000B7BED0 /* NewUserViewController.swift */; };
+		2EFA0EFA294604FC00B7BED0 /* NewUserReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFA0EF9294604FC00B7BED0 /* NewUserReactor.swift */; };
 		2EFBBC71293E0C1100788B40 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFBBC70293E0C1100788B40 /* Alamofire */; };
 		2EFBBC74293E0C8600788B40 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFBBC73293E0C8600788B40 /* SnapKit */; };
 		2EFBBC77293E0E4A00788B40 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFBBC76293E0E4A00788B40 /* Then */; };
@@ -132,15 +132,15 @@
 		2E6A6FE729598FEF003EFACF /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		2E6A6FEC2959A541003EFACF /* NameValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidate.swift; sourceTree = "<group>"; };
 		2E6A6FEF295B06B5003EFACF /* CoreGraphicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGraphicService.swift; sourceTree = "<group>"; };
-		2E8CA06A29509F1C00CF2668 /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
+		2E8CA06A29509F1C00CF2668 /* NewPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPetViewController.swift; sourceTree = "<group>"; };
 		2E8CA06C2950AA5500CF2668 /* ModalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalType.swift; sourceTree = "<group>"; };
 		2E8CA06E2951684300CF2668 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		2E8CA07029516F5600CF2668 /* SpeciesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesCell.swift; sourceTree = "<group>"; };
 		2E8CA07229521AB200CF2668 /* SpeciesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesSection.swift; sourceTree = "<group>"; };
-		2E8CA0742953FEE700CF2668 /* AddPetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetReactor.swift; sourceTree = "<group>"; };
+		2E8CA0742953FEE700CF2668 /* NewPetReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPetReactor.swift; sourceTree = "<group>"; };
 		2E8CA0812955B31A00CF2668 /* CoordinatorFinishDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFinishDelegate.swift; sourceTree = "<group>"; };
 		2E8CA0832955B51B00CF2668 /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
-		2E8CA08A2955C7EC00CF2668 /* AddPetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetCoordinator.swift; sourceTree = "<group>"; };
+		2E8CA08A2955C7EC00CF2668 /* NewPetCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPetCoordinator.swift; sourceTree = "<group>"; };
 		2E8CA08F295622D300CF2668 /* FirebaseStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoreService.swift; sourceTree = "<group>"; };
 		2E8CA0912958C12A00CF2668 /* PetDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDTO.swift; sourceTree = "<group>"; };
 		2E8CA09D2958DC5600CF2668 /* UIImage+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Conversion.swift"; sourceTree = "<group>"; };
@@ -148,8 +148,8 @@
 		2E936603293E2D2300840A2A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		2E936609293F124F00840A2A /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2E93660B293F155300840A2A /* BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColor.swift; sourceTree = "<group>"; };
-		2EC2DDAB2949C514003A6219 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
-		2EC2DDAD2949C548003A6219 /* JoinReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinReactor.swift; sourceTree = "<group>"; };
+		2EC2DDAB2949C514003A6219 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		2EC2DDAD2949C548003A6219 /* InviteReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteReactor.swift; sourceTree = "<group>"; };
 		2EC9695B293E208A00775EF1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2EC9695D293E209400775EF1 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2EC96962293E20C500775EF1 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
@@ -165,8 +165,8 @@
 		2EF2A953294866B1003BD4A1 /* ValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationState.swift; sourceTree = "<group>"; };
 		2EF2A9592948B2D4003BD4A1 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		2EFA0EF22946049C00B7BED0 /* OnboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCoordinator.swift; sourceTree = "<group>"; };
-		2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		2EFA0EF9294604FC00B7BED0 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
+		2EFA0EF6294604D000B7BED0 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		2EFA0EF9294604FC00B7BED0 /* NewUserReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserReactor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,7 +511,7 @@
 		2EFA0EF12946048F00B7BED0 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				2E8CA08A2955C7EC00CF2668 /* AddPetCoordinator.swift */,
+				2E8CA08A2955C7EC00CF2668 /* NewPetCoordinator.swift */,
 				2EFA0EF22946049C00B7BED0 /* OnboardCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -530,11 +530,11 @@
 		2EFA0EF5294604BC00B7BED0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2E8CA06A29509F1C00CF2668 /* AddPetViewController.swift */,
 				2E08529C2949E98200C6AC0C /* BaseOnboardViewController.swift */,
-				2EC2DDAB2949C514003A6219 /* JoinViewController.swift */,
-				2EFA0EF6294604D000B7BED0 /* LoginViewController.swift */,
+				2EFA0EF6294604D000B7BED0 /* NewUserViewController.swift */,
+				2EC2DDAB2949C514003A6219 /* InviteViewController.swift */,
 				2E0852A0294B5E6700C6AC0C /* NewFamilyViewController.swift */,
+				2E8CA06A29509F1C00CF2668 /* NewPetViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -543,10 +543,10 @@
 			isa = PBXGroup;
 			children = (
 				2E6A6FEE2959A545003EFACF /* Protocol */,
-				2E8CA0742953FEE700CF2668 /* AddPetReactor.swift */,
-				2EC2DDAD2949C548003A6219 /* JoinReactor.swift */,
-				2EFA0EF9294604FC00B7BED0 /* LoginReactor.swift */,
+				2EFA0EF9294604FC00B7BED0 /* NewUserReactor.swift */,
+				2EC2DDAD2949C548003A6219 /* InviteReactor.swift */,
 				2E0852A2294B5EA300C6AC0C /* NewFamilyReactor.swift */,
+				2E8CA0742953FEE700CF2668 /* NewPetReactor.swift */,
 				2E0852B2294DF1F200C6AC0C /* PetListSection.swift */,
 				2E8CA07229521AB200CF2668 /* SpeciesSection.swift */,
 			);
@@ -664,7 +664,7 @@
 				2E8CA07329521AB200CF2668 /* SpeciesSection.swift in Sources */,
 				2E8CA0A02958DCAD00CF2668 /* String+Conversion.swift in Sources */,
 				2E8CA0822955B31A00CF2668 /* CoordinatorFinishDelegate.swift in Sources */,
-				2E8CA08B2955C7EC00CF2668 /* AddPetCoordinator.swift in Sources */,
+				2E8CA08B2955C7EC00CF2668 /* NewPetCoordinator.swift in Sources */,
 				2EC96963293E20C500775EF1 /* HomeCoordinator.swift in Sources */,
 				2E68667D293F506400FBB057 /* PetSelectorView.swift in Sources */,
 				2EC9695E293E209400775EF1 /* AppCoordinator.swift in Sources */,
@@ -673,23 +673,23 @@
 				2E8CA0842955B51B00CF2668 /* CoordinatorType.swift in Sources */,
 				2E68668F2941E12700FBB057 /* BaseCollectionViewCell.swift in Sources */,
 				2E93660C293F155300840A2A /* BrandColor.swift in Sources */,
-				2EC2DDAE2949C548003A6219 /* JoinReactor.swift in Sources */,
-				2EC2DDAC2949C514003A6219 /* JoinViewController.swift in Sources */,
+				2EC2DDAE2949C548003A6219 /* InviteReactor.swift in Sources */,
+				2EC2DDAC2949C514003A6219 /* InviteViewController.swift in Sources */,
 				2E8CA06F2951684300CF2668 /* Species.swift in Sources */,
 				2E0852B1294CA45B00C6AC0C /* Pet.swift in Sources */,
-				2EFA0EF7294604D000B7BED0 /* LoginViewController.swift in Sources */,
+				2EFA0EF7294604D000B7BED0 /* NewUserViewController.swift in Sources */,
 				2E6866B92943B43700FBB057 /* UserDTO.swift in Sources */,
 				2E0852AB294C967200C6AC0C /* PetListCell.swift in Sources */,
 				2E0852AD294C967E00C6AC0C /* PetListCellReactor.swift in Sources */,
 				2E6A6FF0295B06B5003EFACF /* CoreGraphicService.swift in Sources */,
 				2E0852A3294B5EA300C6AC0C /* NewFamilyReactor.swift in Sources */,
 				2E0852B3294DF1F200C6AC0C /* PetListSection.swift in Sources */,
-				2E8CA0752953FEE700CF2668 /* AddPetReactor.swift in Sources */,
+				2E8CA0752953FEE700CF2668 /* NewPetReactor.swift in Sources */,
 				2E686676293F481000FBB057 /* ModalViewController.swift in Sources */,
 				2EF2A95A2948B2D4003BD4A1 /* UIView+Shadow.swift in Sources */,
 				2E68669C2942CC7100FBB057 /* MockService.swift in Sources */,
 				2EFA0EF32946049C00B7BED0 /* OnboardCoordinator.swift in Sources */,
-				2EFA0EFA294604FC00B7BED0 /* LoginReactor.swift in Sources */,
+				2EFA0EFA294604FC00B7BED0 /* NewUserReactor.swift in Sources */,
 				2E0852A5294B6C3300C6AC0C /* FamilyNameValidationState.swift in Sources */,
 				2EF2A95229483781003BD4A1 /* FamilyDTO.swift in Sources */,
 				2EF2A94E29482ED0003BD4A1 /* FirestoreConstants.swift in Sources */,
@@ -698,7 +698,7 @@
 				2E6A6FE829598FEF003EFACF /* AppData.swift in Sources */,
 				2E0F3279293E08F500127438 /* AppDelegate.swift in Sources */,
 				2E6866BF2945E86900FBB057 /* User.swift in Sources */,
-				2E8CA06B29509F1C00CF2668 /* AddPetViewController.swift in Sources */,
+				2E8CA06B29509F1C00CF2668 /* NewPetViewController.swift in Sources */,
 				2E0F327B293E08F500127438 /* SceneDelegate.swift in Sources */,
 				2EC9696A293E235300775EF1 /* HomeViewReactor.swift in Sources */,
 				2EF2A94C29482CF8003BD4A1 /* FirestoreService.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  JoinReactor.swift
+//  InviteReactor.swift
 //  DidYouFeed
 //
 //  Created by 이창준 on 2022/12/14.
@@ -9,7 +9,7 @@ import Foundation
 
 import ReactorKit
 
-final class JoinReactor: Reactor {
+final class InviteReactor: Reactor {
     
     // MARK: - Properties
     

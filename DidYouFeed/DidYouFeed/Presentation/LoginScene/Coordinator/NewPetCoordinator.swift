@@ -1,5 +1,5 @@
 //
-//  AddPetCoordinator.swift
+//  NewPetCoordinator.swift
 //  DidYouFeed
 //
 //  Created by 이창준 on 2022/12/23.
@@ -13,8 +13,8 @@ import ReactorKit
 import RxSwift
 import RxCocoa
 
-final class AddPetCoordinator: Coordinator {
-    typealias Reactor = AddPetReactor
+final class NewPetCoordinator: Coordinator {
+    typealias Reactor = NewPetReactor
     
     // MARK: - Properties
     
@@ -36,8 +36,8 @@ final class AddPetCoordinator: Coordinator {
     // MARK: - Functions
     
     func start() {
-        let addPetReactor = AddPetReactor(coordinator: self)
-        let addPetViewController = AddPetViewController(reactor: addPetReactor)
+        let addPetReactor = NewPetReactor(coordinator: self)
+        let addPetViewController = NewPetViewController(reactor: addPetReactor)
         self.bind(reactor: addPetReactor)
         self.navigationController.pushViewController(addPetViewController, animated: true)
     }
@@ -46,7 +46,7 @@ final class AddPetCoordinator: Coordinator {
         self.finishDelegate?.coordinatorDidFinish(childCoordinator: self)
     }
     
-    func bind(reactor: AddPetReactor) {
+    func bind(reactor: NewPetReactor) {
         
         // Action
         self.petImage
@@ -67,7 +67,7 @@ final class AddPetCoordinator: Coordinator {
     }
 }
 
-extension AddPetCoordinator: PHPickerViewControllerDelegate {
+extension NewPetCoordinator: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         let cgService = CoreGraphicService()
         let itemProvider = results.first?.itemProvider

@@ -1,5 +1,5 @@
 //
-//  JoinViewController.swift
+//  InviteViewController.swift
 //  DidYouFeed
 //
 //  Created by 이창준 on 2022/12/14.
@@ -12,8 +12,8 @@ import RxKeyboard
 import RxSwift
 import SnapKit
 
-final class JoinViewController: BaseOnboardViewController, View {
-    typealias Reactor = JoinReactor
+final class InviteViewController: BaseOnboardViewController, View {
+    typealias Reactor = InviteReactor
     
     // MARK: - Constants
     
@@ -73,7 +73,7 @@ final class JoinViewController: BaseOnboardViewController, View {
     
     // MARK: - Initializer
     
-    init(reactor: JoinReactor) {
+    init(reactor: InviteReactor) {
         super.init()
         self.reactor = reactor
     }
@@ -100,7 +100,7 @@ final class JoinViewController: BaseOnboardViewController, View {
     
     // MARK: - Binding
     
-    func bind(reactor: JoinReactor) {
+    func bind(reactor: InviteReactor) {
         
         // Action
         self.createNewFamilyButton.rx.tap

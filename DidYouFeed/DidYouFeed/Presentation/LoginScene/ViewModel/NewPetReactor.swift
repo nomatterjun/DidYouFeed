@@ -1,5 +1,5 @@
 //
-//  AddPetReactor.swift
+//  NewPetReactor.swift
 //  DidYouFeed
 //
 //  Created by 이창준 on 2022/12/22.
@@ -10,12 +10,12 @@ import UIKit
 
 import ReactorKit
 
-final class AddPetReactor: Reactor {
+final class NewPetReactor: Reactor {
     typealias Validate = ValidationState.PetName
     
     // MARK: - Properties
     
-    weak var coordinator: AddPetCoordinator?
+    weak var coordinator: NewPetCoordinator?
     
     enum Action {
         case viewDidLoad
@@ -48,7 +48,7 @@ final class AddPetReactor: Reactor {
     
     // MARK: - Initializer
     
-    init(coordinator: AddPetCoordinator) {
+    init(coordinator: NewPetCoordinator) {
         self.coordinator = coordinator
         self.initialState = State()
     }
@@ -122,7 +122,7 @@ final class AddPetReactor: Reactor {
     }
 }
 
-extension AddPetReactor: NameValidate {
+extension NewPetReactor: NameValidate {
     func validate(name: String) -> Validate {
         guard !name.isEmpty else {
             return .empty

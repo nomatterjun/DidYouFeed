@@ -1,5 +1,5 @@
 //
-//  LoginReactor.swift
+//  NewUserReactor.swift
 //  DidYouFeed
 //
 //  Created by 이창준 on 2022/12/11.
@@ -10,7 +10,7 @@ import OSLog
 
 import ReactorKit
 
-final class LoginReactor: Reactor {
+final class NewUserReactor: Reactor {
     typealias Validate = ValidationState.Nickname
     
     // MARK: - Properties
@@ -78,7 +78,7 @@ final class LoginReactor: Reactor {
     }
 }
 
-extension LoginReactor: NameValidate {
+extension NewUserReactor: NameValidate {
     func validate(name: String) -> Validate {
         guard !name.isEmpty else {
             return .empty

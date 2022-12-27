@@ -28,8 +28,8 @@ final class OnboardCoordinator: Coordinator {
     // MARK: - Functions
     
     func start() {
-        let loginViewModel = LoginReactor(coordinator: self)
-        let loginViewController = LoginViewController(reactor: loginViewModel)
+        let loginViewModel = NewUserReactor(coordinator: self)
+        let loginViewController = NewUserViewController(reactor: loginViewModel)
         loginViewController.titleLabel = loginViewController.createTitleLabel(
             text: "처음 오셨나봐요.\n당신에 대해 알려주세요."
         )
@@ -40,8 +40,8 @@ final class OnboardCoordinator: Coordinator {
     }
     
     func showJoinFlow(for userName: String) {
-        let joinReactor = JoinReactor(coordinator: self)
-        let joinViewController = JoinViewController(reactor: joinReactor)
+        let joinReactor = InviteReactor(coordinator: self)
+        let joinViewController = NewFamilyViewController(reactor: joinReactor)
         joinViewController.titleLabel = joinViewController.createTitleLabel(
             text: "반가워요 \(userName)님.\n이제 함께 할 사람들을 찾아봐요."
         )
@@ -64,7 +64,7 @@ final class OnboardCoordinator: Coordinator {
     }
     
     func showAddPetFlow() {
-        let addPetCoordinator = AddPetCoordinator(self.navigationController)
+        let addPetCoordinator = NewPetCoordinator(self.navigationController)
         self.childCoordinators.append(addPetCoordinator)
         addPetCoordinator.finishDelegate = self
         addPetCoordinator.start()

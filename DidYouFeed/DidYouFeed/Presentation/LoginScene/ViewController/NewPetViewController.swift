@@ -1,5 +1,5 @@
 //
-//  AddPetViewController.swift
+//  NewPetViewController.swift
 //  DidYouFeed
 //
 //  Created by 이창준 on 2022/12/19.
@@ -14,8 +14,8 @@ import RxKeyboard
 import SnapKit
 import Then
 
-final class AddPetViewController: BaseViewController, View {
-    typealias Reactor = AddPetReactor
+final class NewPetViewController: BaseViewController, View {
+    typealias Reactor = NewPetReactor
     
     // MARK: - Constants
     
@@ -83,7 +83,7 @@ final class AddPetViewController: BaseViewController, View {
     
     // MARK: - Initializer
     
-    init(reactor: AddPetReactor) {
+    init(reactor: NewPetReactor) {
         super.init()
         self.reactor = reactor
     }
@@ -164,7 +164,7 @@ final class AddPetViewController: BaseViewController, View {
     
     // MARK: - Binding
     
-    func bind(reactor: AddPetReactor) {
+    func bind(reactor: NewPetReactor) {
         
         // Action
         Observable.just(())

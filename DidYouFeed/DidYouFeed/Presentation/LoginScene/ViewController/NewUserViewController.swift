@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  NewUserViewController.swift
 //  DidYouFeed
 //
 //  Created by 이창준 on 2022/12/11.
@@ -14,8 +14,8 @@ import RxSwift
 import SnapKit
 import Then
 
-final class LoginViewController: BaseOnboardViewController, View {
-    typealias Reactor = LoginReactor
+final class NewUserViewController: BaseOnboardViewController, View {
+    typealias Reactor = NewUserReactor
     typealias Available = Bool
     
     // MARK: - Constants
@@ -75,7 +75,7 @@ final class LoginViewController: BaseOnboardViewController, View {
     
     // MARK: - Initializer
     
-    init(reactor: LoginReactor) {
+    init(reactor: NewUserReactor) {
         super.init()
         self.reactor = reactor
     }
@@ -107,7 +107,7 @@ final class LoginViewController: BaseOnboardViewController, View {
     
     // MARK: - Binding
     
-    func bind(reactor: LoginReactor) {
+    func bind(reactor: NewUserReactor) {
         
         // Action
         self.nicknameTextField.rx.text
@@ -217,7 +217,7 @@ final class LoginViewController: BaseOnboardViewController, View {
 
 // MARK: - Private Functions
 
-private extension LoginViewController {
+private extension NewUserViewController {
     
     
     
