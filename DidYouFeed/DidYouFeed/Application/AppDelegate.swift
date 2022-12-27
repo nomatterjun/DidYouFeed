@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        [UserDefaultsKey.userData, UserDefaultsKey.petsData, UserDefaultsKey.familyData].forEach {
+            UserDefaults.standard.removeObject(forKey: $0)
+        }
         
         return true
     }

@@ -220,13 +220,6 @@ final class AddPetViewController: BaseViewController, View {
             })
             .disposed(by: self.disposeBag)
         
-        reactor.state.asObservable().map { $0.pet }
-            .distinctUntilChanged()
-            .subscribe(onNext: {
-                print($0.image?.toImage()) // TODO: UIImage String으로 변경해서 출력하면 쥰내게 길다... 루프 걸린걸로 알 정도로;
-            })
-            .disposed(by: self.disposeBag)
-        
         reactor.state.asObservable().map { $0.petImage }
             .bind(to: self.petImageButton.rx.image())
             .disposed(by: self.disposeBag)

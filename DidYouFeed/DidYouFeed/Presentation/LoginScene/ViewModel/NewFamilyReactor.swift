@@ -62,6 +62,7 @@ final class NewFamilyReactor: Reactor {
         case .confirmButtonTap:
             AppData.familyData.name = currentState.familyName
             AppData.familyData.members.append(AppData.userData.uID)
+            print(AppData.userData)
             AppData.familyData.pets = AppData.petsData.map { $0.pID }
             print(AppData.familyData)
             print(AppData.petsData.map {$0.name})

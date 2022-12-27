@@ -69,17 +69,26 @@ final class AddPetCoordinator: Coordinator {
 
 extension AddPetCoordinator: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true)
-
+        let cgService = CoreGraphicService()
         let itemProvider = results.first?.itemProvider
 
         if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
-            itemProvider.loadObject(ofClass: UIImage.self) { image, error in
-                if let image = image as? UIImage {
-                    self.petImage.accept(image)
+            itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { url, error in
+                if let url {
+                    let targetSize = CGSize(width: 100.0, height: 100.0)
+                    guard let downsampleImage = cgService.downsample(
+                        at: url,
+                        to: targetSize,
+                        scale: UIScreen.main.scale
+                    ) else { return }
+                    guard let convertedImage = UIImage(data: downsampleImage) else { return }
+                    self.petImage.accept(convertedImage)
                 }
                 if let error {
                     os_log(.error, "\(error)")
+                }
+                DispatchQueue.main.async {
+                    picker.dismiss(animated: true)
                 }
             }
         }

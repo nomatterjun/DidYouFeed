@@ -43,6 +43,7 @@
 		2E6A6FE829598FEF003EFACF /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FE729598FEF003EFACF /* AppData.swift */; };
 		2E6A6FEB2959A0BE003EFACF /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 2E6A6FEA2959A0BE003EFACF /* OrderedCollections */; };
 		2E6A6FED2959A541003EFACF /* NameValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FEC2959A541003EFACF /* NameValidate.swift */; };
+		2E6A6FF0295B06B5003EFACF /* CoreGraphicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6FEF295B06B5003EFACF /* CoreGraphicService.swift */; };
 		2E8CA069294FE6C800CF2668 /* RxKeyboard in Frameworks */ = {isa = PBXBuildFile; productRef = 2E8CA068294FE6C800CF2668 /* RxKeyboard */; };
 		2E8CA06B29509F1C00CF2668 /* AddPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06A29509F1C00CF2668 /* AddPetViewController.swift */; };
 		2E8CA06D2950AA5500CF2668 /* ModalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CA06C2950AA5500CF2668 /* ModalType.swift */; };
@@ -130,6 +131,7 @@
 		2E6A6FE529597874003EFACF /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		2E6A6FE729598FEF003EFACF /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		2E6A6FEC2959A541003EFACF /* NameValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidate.swift; sourceTree = "<group>"; };
+		2E6A6FEF295B06B5003EFACF /* CoreGraphicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGraphicService.swift; sourceTree = "<group>"; };
 		2E8CA06A29509F1C00CF2668 /* AddPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetViewController.swift; sourceTree = "<group>"; };
 		2E8CA06C2950AA5500CF2668 /* ModalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalType.swift; sourceTree = "<group>"; };
 		2E8CA06E2951684300CF2668 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		2E68669A2942CC5100FBB057 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2E6A6FEF295B06B5003EFACF /* CoreGraphicService.swift */,
 				2E8CA08F295622D300CF2668 /* FirebaseStoreService.swift */,
 				2EF2A94B29482CF8003BD4A1 /* FirestoreService.swift */,
 				2E68669B2942CC7100FBB057 /* MockService.swift */,
@@ -678,6 +681,7 @@
 				2E6866B92943B43700FBB057 /* UserDTO.swift in Sources */,
 				2E0852AB294C967200C6AC0C /* PetListCell.swift in Sources */,
 				2E0852AD294C967E00C6AC0C /* PetListCellReactor.swift in Sources */,
+				2E6A6FF0295B06B5003EFACF /* CoreGraphicService.swift in Sources */,
 				2E0852A3294B5EA300C6AC0C /* NewFamilyReactor.swift in Sources */,
 				2E0852B3294DF1F200C6AC0C /* PetListSection.swift in Sources */,
 				2E8CA0752953FEE700CF2668 /* AddPetReactor.swift in Sources */,
