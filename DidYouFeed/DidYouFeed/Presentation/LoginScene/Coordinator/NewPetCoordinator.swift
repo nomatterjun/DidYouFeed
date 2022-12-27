@@ -23,7 +23,7 @@ final class NewPetCoordinator: Coordinator {
     weak var finishDelegate: CoordinatorFinishDelegate?
     var navigationController: UINavigationController
     var childCoordinators = [Coordinator]()
-    var type: CoordinatorType = .addPet
+    var type: CoordinatorType = .newPet
     
     let petImage = PublishRelay<UIImage>()
     

@@ -59,7 +59,7 @@ final class NewUserReactor: Reactor {
         case .confirmButtonTap:
             AppData.userData.name = currentState.username
             os_log(.info, "Set user's name as \(AppData.userData.name)")
-            self.coordinator?.showJoinFlow(for: currentState.username)
+            self.coordinator?.showInviteFlow(for: currentState.username)
             return Observable<Mutation>.empty()
         }
     }

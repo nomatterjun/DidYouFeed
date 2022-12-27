@@ -56,7 +56,7 @@ final class NewFamilyReactor: Reactor {
             return Observable.just(.updateFamilyName(familyName))
             
         case .addPetButtonTap:
-            self.coordinator?.showAddPetFlow()
+            self.coordinator?.showNewPetFlow()
             return Observable<Mutation>.empty()
             
         case .confirmButtonTap:

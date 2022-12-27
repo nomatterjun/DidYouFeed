@@ -9,6 +9,6 @@ import Foundation
 
 enum CoordinatorType {
     case app, onboard
-    case addPet
+    case newPet
     case home
 }

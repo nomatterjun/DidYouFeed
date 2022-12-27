@@ -28,25 +28,25 @@ final class OnboardCoordinator: Coordinator {
     // MARK: - Functions
     
     func start() {
-        let loginViewModel = NewUserReactor(coordinator: self)
-        let loginViewController = NewUserViewController(reactor: loginViewModel)
-        loginViewController.titleLabel = loginViewController.createTitleLabel(
+        let newUserViewModel = NewUserReactor(coordinator: self)
+        let newUserViewController = NewUserViewController(reactor: newUserViewModel)
+        newUserViewController.titleLabel = newUserViewController.createTitleLabel(
             text: "처음 오셨나봐요.\n당신에 대해 알려주세요."
         )
         self.navigationController.pushViewController(
-            loginViewController,
+            newUserViewController,
             animated: true
         )
     }
     
-    func showJoinFlow(for userName: String) {
-        let joinReactor = InviteReactor(coordinator: self)
-        let joinViewController = NewFamilyViewController(reactor: joinReactor)
-        joinViewController.titleLabel = joinViewController.createTitleLabel(
+    func showInviteFlow(for userName: String) {
+        let inviteReactor = InviteReactor(coordinator: self)
+        let inviteViewController = InviteViewController(reactor: inviteReactor)
+        inviteViewController.titleLabel = inviteViewController.createTitleLabel(
             text: "반가워요 \(userName)님.\n이제 함께 할 사람들을 찾아봐요."
         )
         self.navigationController.pushViewController(
-            joinViewController,
+            inviteViewController,
             animated: true
         )
     }
@@ -63,11 +63,11 @@ final class OnboardCoordinator: Coordinator {
         )
     }
     
-    func showAddPetFlow() {
-        let addPetCoordinator = NewPetCoordinator(self.navigationController)
-        self.childCoordinators.append(addPetCoordinator)
-        addPetCoordinator.finishDelegate = self
-        addPetCoordinator.start()
+    func showNewPetFlow() {
+        let newPetCoordinator = NewPetCoordinator(self.navigationController)
+        self.childCoordinators.append(newPetCoordinator)
+        newPetCoordinator.finishDelegate = self
+        newPetCoordinator.start()
     }
 }
 
