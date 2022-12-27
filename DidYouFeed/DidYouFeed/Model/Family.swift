@@ -12,13 +12,13 @@ struct Family: Codable {
     let fID: String
     var name: String
     var members: [String] {
-        didSet {
-            self.members = Array(OrderedSet(oldValue))
+        willSet {
+            self.members = Array(OrderedSet(newValue))
         }
     }
     var pets: [String] {
-        didSet {
-            self.pets = Array(OrderedSet(oldValue))
+        willSet {
+            self.pets = Array(OrderedSet(newValue))
         }
     }
     
