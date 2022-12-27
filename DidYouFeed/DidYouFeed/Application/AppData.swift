@@ -13,6 +13,6 @@ struct AppData {
     @UserDefault(key: UserDefaultsKey.familyData, defaultValue: Family())
     static var familyData: Family
     
-    @UserDefault(key: UserDefaultsKey.petsData, defaultValue: [Pet()])
+    @UserDefault(key: UserDefaultsKey.petsData, defaultValue: [])
     static var petsData: [Pet]
 }
