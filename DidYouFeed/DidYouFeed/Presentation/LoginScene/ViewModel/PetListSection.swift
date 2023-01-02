@@ -2,15 +2,31 @@
 //  PetListSection.swift
 //  DidYouFeed
 //
-//  Created by 이창준 on 2022/12/17.
+//  Created by 이창준 on 2023/01/03.
 //
 
 import RxDataSources
 
-struct PetListSection {
-    typealias PetListSectionModel = SectionModel<Int, PetItem>
+enum PetListSection {
+    case standard([PetListSectionItem])
+}
+
+enum PetListSectionItem {
+    case standard(PetListCellReactor)
+}
+
+extension PetListSection: SectionModelType {
+    var items: [PetListSectionItem] {
+        switch self {
+        case .standard(let items):
+            return items
+        }
+    }
     
-    enum PetItem: Equatable {
-        case standard(Pet)
+    init(original: PetListSection, items: [PetListSectionItem]) {
+        switch original {
+        case .standard:
+            self = .standard(items)
+        }
     }
 }

@@ -17,7 +17,6 @@
 		2E0852AD294C967E00C6AC0C /* PetListCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0852AC294C967E00C6AC0C /* PetListCellReactor.swift */; };
 		2E0852AF294C96D100C6AC0C /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0852AE294C96D100C6AC0C /* BaseTableViewCell.swift */; };
 		2E0852B1294CA45B00C6AC0C /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0852B0294CA45B00C6AC0C /* Pet.swift */; };
-		2E0852B3294DF1F200C6AC0C /* PetListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0852B2294DF1F200C6AC0C /* PetListSection.swift */; };
 		2E0F3279293E08F500127438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F3278293E08F500127438 /* AppDelegate.swift */; };
 		2E0F327B293E08F500127438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F327A293E08F500127438 /* SceneDelegate.swift */; };
 		2E0F3282293E08F600127438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E0F3281293E08F600127438 /* Assets.xcassets */; };
@@ -64,6 +63,7 @@
 		2E936604293E2D2300840A2A /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936603293E2D2300840A2A /* UserDefaultsKey.swift */; };
 		2E93660A293F124F00840A2A /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E936609293F124F00840A2A /* UIColor+Hex.swift */; };
 		2E93660C293F155300840A2A /* BrandColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E93660B293F155300840A2A /* BrandColor.swift */; };
+		2EBB0148295DFA810072D158 /* TaskListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBB0147295DFA810072D158 /* TaskListSection.swift */; };
 		2EC2DDAC2949C514003A6219 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DDAB2949C514003A6219 /* InviteViewController.swift */; };
 		2EC2DDAE2949C548003A6219 /* InviteReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC2DDAD2949C548003A6219 /* InviteReactor.swift */; };
 		2EC9695C293E208A00775EF1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC9695B293E208A00775EF1 /* Coordinator.swift */; };
@@ -72,6 +72,7 @@
 		2EC96965293E20F000775EF1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC96964293E20F000775EF1 /* HomeViewController.swift */; };
 		2EC96968293E216900775EF1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC96967293E216900775EF1 /* BaseViewController.swift */; };
 		2EC9696A293E235300775EF1 /* HomeViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC96969293E235300775EF1 /* HomeViewReactor.swift */; };
+		2ECD69A8296344FE00D00F8F /* PetListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECD69A7296344FE00D00F8F /* PetListSection.swift */; };
 		2EF2A94329481141003BD4A1 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A94229481141003BD4A1 /* Family.swift */; };
 		2EF2A945294817A4003BD4A1 /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A944294817A4003BD4A1 /* BaseTextField.swift */; };
 		2EF2A94C29482CF8003BD4A1 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2A94B29482CF8003BD4A1 /* FirestoreService.swift */; };
@@ -105,7 +106,6 @@
 		2E0852AC294C967E00C6AC0C /* PetListCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListCellReactor.swift; sourceTree = "<group>"; };
 		2E0852AE294C96D100C6AC0C /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		2E0852B0294CA45B00C6AC0C /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
-		2E0852B2294DF1F200C6AC0C /* PetListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListSection.swift; sourceTree = "<group>"; };
 		2E0F3275293E08F500127438 /* DidYouFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DidYouFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E0F3278293E08F500127438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E0F327A293E08F500127438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 		2E936603293E2D2300840A2A /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		2E936609293F124F00840A2A /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2E93660B293F155300840A2A /* BrandColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandColor.swift; sourceTree = "<group>"; };
+		2EBB0147295DFA810072D158 /* TaskListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListSection.swift; sourceTree = "<group>"; };
 		2EC2DDAB2949C514003A6219 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		2EC2DDAD2949C548003A6219 /* InviteReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteReactor.swift; sourceTree = "<group>"; };
 		2EC9695B293E208A00775EF1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -156,6 +157,7 @@
 		2EC96964293E20F000775EF1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2EC96967293E216900775EF1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2EC96969293E235300775EF1 /* HomeViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewReactor.swift; sourceTree = "<group>"; };
+		2ECD69A7296344FE00D00F8F /* PetListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListSection.swift; sourceTree = "<group>"; };
 		2EF2A94229481141003BD4A1 /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		2EF2A944294817A4003BD4A1 /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		2EF2A94B29482CF8003BD4A1 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
@@ -200,7 +202,6 @@
 			children = (
 				2E0F3277293E08F500127438 /* DidYouFeed */,
 				2E0F3276293E08F500127438 /* Products */,
-				2EF2A94629482B24003BD4A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				2EC96969293E235300775EF1 /* HomeViewReactor.swift */,
+				2EBB0147295DFA810072D158 /* TaskListSection.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -490,13 +492,6 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
-		2EF2A94629482B24003BD4A1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		2EFA0EF02946046A00B7BED0 /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,7 +542,7 @@
 				2EC2DDAD2949C548003A6219 /* InviteReactor.swift */,
 				2E0852A2294B5EA300C6AC0C /* NewFamilyReactor.swift */,
 				2E8CA0742953FEE700CF2668 /* NewPetReactor.swift */,
-				2E0852B2294DF1F200C6AC0C /* PetListSection.swift */,
+				2ECD69A7296344FE00D00F8F /* PetListSection.swift */,
 				2E8CA07229521AB200CF2668 /* SpeciesSection.swift */,
 			);
 			path = ViewModel;
@@ -683,7 +678,6 @@
 				2E0852AD294C967E00C6AC0C /* PetListCellReactor.swift in Sources */,
 				2E6A6FF0295B06B5003EFACF /* CoreGraphicService.swift in Sources */,
 				2E0852A3294B5EA300C6AC0C /* NewFamilyReactor.swift in Sources */,
-				2E0852B3294DF1F200C6AC0C /* PetListSection.swift in Sources */,
 				2E8CA0752953FEE700CF2668 /* NewPetReactor.swift in Sources */,
 				2E686676293F481000FBB057 /* ModalViewController.swift in Sources */,
 				2EF2A95A2948B2D4003BD4A1 /* UIView+Shadow.swift in Sources */,
@@ -693,6 +687,7 @@
 				2E0852A5294B6C3300C6AC0C /* FamilyNameValidationState.swift in Sources */,
 				2EF2A95229483781003BD4A1 /* FamilyDTO.swift in Sources */,
 				2EF2A94E29482ED0003BD4A1 /* FirestoreConstants.swift in Sources */,
+				2ECD69A8296344FE00D00F8F /* PetListSection.swift in Sources */,
 				2E0852AF294C96D100C6AC0C /* BaseTableViewCell.swift in Sources */,
 				2E6866882941CFE600FBB057 /* Task.swift in Sources */,
 				2E6A6FE829598FEF003EFACF /* AppData.swift in Sources */,
@@ -711,6 +706,7 @@
 				2E6866BD2945E6A500FBB057 /* FirebaseRepository.swift in Sources */,
 				2E0852A9294C8C2C00C6AC0C /* CGRect+One.swift in Sources */,
 				2EC9695C293E208A00775EF1 /* Coordinator.swift in Sources */,
+				2EBB0148295DFA810072D158 /* TaskListSection.swift in Sources */,
 				2EC96968293E216900775EF1 /* BaseViewController.swift in Sources */,
 				2E6A6FED2959A541003EFACF /* NameValidate.swift in Sources */,
 				2EC96965293E20F000775EF1 /* HomeViewController.swift in Sources */,

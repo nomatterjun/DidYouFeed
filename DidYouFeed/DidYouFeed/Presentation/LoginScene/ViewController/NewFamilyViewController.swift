@@ -34,6 +34,17 @@ final class NewFamilyViewController: BaseOnboardViewController, View {
     
     // MARK: - Properties
     
+    var dataSource = RxTableViewSectionedReloadDataSource<PetListSection> { dataSource, tableView, indexPath, sectionItem in
+        switch sectionItem {
+        case .standard(let reactor):
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PetListCell.identifier, for: indexPath) as? PetListCell else {
+                return UITableViewCell(frame: .zero)
+            }
+            cell.reactor = reactor
+            return cell
+        }
+    }
+    
     // MARK: - UI Components
     
     lazy var familyNameTextField = BaseTextField().then {
@@ -51,7 +62,6 @@ final class NewFamilyViewController: BaseOnboardViewController, View {
         $0.showsVerticalScrollIndicator = false
         $0.showsHorizontalScrollIndicator = false
         $0.register(PetListCell.self, forCellReuseIdentifier: PetListCell.identifier)
-        $0.rowHeight = 30
     }
     
     private lazy var addPetButton = UIButton(
@@ -104,6 +114,7 @@ final class NewFamilyViewController: BaseOnboardViewController, View {
         super.viewDidLoad()
         
         self.updateKeyboard()
+        self.petListTableView.rx.setDelegate(self).disposed(by: self.disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,39 +158,12 @@ final class NewFamilyViewController: BaseOnboardViewController, View {
             .disposed(by: self.disposeBag)
         
         // State
-        let dataSource = RxTableViewSectionedReloadDataSource<PetListSection.PetListSectionModel> { dataSource, tableView, indexPath, item in
-            Self.configureTableViewCell(
-                tableView: tableView,
-                indexPath: indexPath,
-                item: item
-            )
-        }
-        
         reactor.state.map { $0.petListSection }
-            .distinctUntilChanged()
-            .map { [$0] }
-            .bind(to: self.petListTableView.rx.items(dataSource: dataSource))
+            .bind(to: self.petListTableView.rx.items(dataSource: self.dataSource))
             .disposed(by: self.disposeBag)
     }
     
     // MARK: - Functions
-    
-    private static func configureTableViewCell(
-        tableView: UITableView,
-        indexPath: IndexPath,
-        item: PetListSection.PetItem
-    ) -> PetListCell {
-        switch item {
-        case let .standard(pet):
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: PetListCell.identifier,
-                for: indexPath) as? PetListCell else {
-                return PetListCell(style: .default, reuseIdentifier: nil)
-            }
-            cell.setPet(pet)
-            return cell
-        }
-    }
     
     // MARK: - UI Setups
     
@@ -197,6 +181,10 @@ final class NewFamilyViewController: BaseOnboardViewController, View {
             make.leading.trailing.equalToSuperview().inset(Metric.textFieldInset)
             make.top.equalTo(self.titleLabel.snp.bottom).offset(Metric.viewSpacing)
             make.height.greaterThanOrEqualTo(Metric.stackViewMinHeight).priority(.low)
+        }
+        
+        self.petListTableView.snp.makeConstraints { make in
+            make.height.equalTo(40)
         }
         
         self.confirmButton.snp.makeConstraints { make in
@@ -227,5 +215,11 @@ final class NewFamilyViewController: BaseOnboardViewController, View {
                 self.view.layoutIfNeeded()
             })
             .disposed(by: self.disposeBag)
+    }
+}
+
+extension NewFamilyViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 20
     }
 }

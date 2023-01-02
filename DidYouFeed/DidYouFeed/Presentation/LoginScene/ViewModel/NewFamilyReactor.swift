@@ -31,10 +31,7 @@ final class NewFamilyReactor: Reactor {
     
     struct State {
         var familyName: String = ""
-        var petListSection = PetListSection.PetListSectionModel(
-            model: 0,
-            items: []
-        )
+        var petListSection = [PetListSection]()
     }
     
     // MARK: - Initializer
@@ -63,6 +60,8 @@ final class NewFamilyReactor: Reactor {
             AppData.familyData.name = currentState.familyName
             AppData.familyData.members.append(AppData.userData.uID)
             AppData.familyData.pets = AppData.petsData.map { $0.pID }
+			AppData.isLoggedIn = true
+			self.coordinator?.finish()
             return Observable<Mutation>.empty()
         }
     }
@@ -74,10 +73,7 @@ final class NewFamilyReactor: Reactor {
             newState.familyName = familyName
             
         case .updateDataSource:
-            let pets = MockService.standard.getPetMock()
-            let items = pets.map(PetListSection.PetItem.standard)
-            let sectionModel = PetListSection.PetListSectionModel(model: 0, items: items)
-            newState.petListSection = sectionModel
+            newState.petListSection = MockService.standard.getPetMock()
         }
         return newState
     }

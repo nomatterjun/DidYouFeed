@@ -78,4 +78,3 @@ private extension BaseTextField {
         self.font = Font.title
     }
 }
-

@@ -30,12 +30,17 @@ struct MockService {
         })
     }
     
-    func getPetMock() -> [Pet] {
-        (1...3).map {
-            Pet(
-                name: "초롬\($0)"
-            )
-        }
+    func getPetMock() -> [PetListSection] {
+        let one = PetListSectionItem.standard(PetListCellReactor(pet: Pet(name: "초롬1")))
+        let two = PetListSectionItem.standard(PetListCellReactor(pet: Pet(name: "초롬2")))
+        let three = PetListSectionItem.standard(PetListCellReactor(pet: Pet(name: "초롬3")))
+        let itemsInSection = [one, two, three]
+        
+        let petListSection = PetListSection(
+            original: PetListSection(original: .standard(itemsInSection), items: itemsInSection),
+            items: itemsInSection
+        )
+        return [petListSection]
     }
     
     func getSpeciesMock() -> [String] {

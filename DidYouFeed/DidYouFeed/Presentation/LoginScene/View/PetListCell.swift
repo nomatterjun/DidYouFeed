@@ -7,11 +7,13 @@
 
 import UIKit
 
+import ReactorKit
 import RxSwift
 import SnapKit
 import Then
 
-final class PetListCell: BaseTableViewCell {
+final class PetListCell: BaseTableViewCell, View {
+    typealias Reactor = PetListCellReactor
     
     // MARK: - Constants
     
@@ -47,9 +49,9 @@ final class PetListCell: BaseTableViewCell {
         }
     }
     
-    // MARK: - Functions
+    // MARK: - Binding
     
-    func setPet(_ pet: Pet) {
-        self.nameLabel.text = pet.name
+    func bind(reactor: PetListCellReactor) {
+        self.nameLabel.text = reactor.currentState.name
     }
 }

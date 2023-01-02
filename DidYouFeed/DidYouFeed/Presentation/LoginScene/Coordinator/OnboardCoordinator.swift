@@ -69,6 +69,10 @@ final class OnboardCoordinator: Coordinator {
         newPetCoordinator.finishDelegate = self
         newPetCoordinator.start()
     }
+	
+	func finish() {
+		self.navigationController.popToRootViewController(animated: true)
+	}
 }
 
 extension OnboardCoordinator: CoordinatorFinishDelegate {

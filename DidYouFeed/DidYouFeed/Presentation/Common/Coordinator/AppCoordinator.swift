@@ -25,11 +25,11 @@ final class AppCoordinator: Coordinator {
     // MARK: - Functions
     
     func start() {
-        if UserDefaults.standard.bool(forKey: UserDefaultsKey.isLoggedIn) {
+		if AppData.isLoggedIn == true {
             self.showHomeFlow()
         } else {
             // - TODO: Login 구현 후에 showLoginFlow로 교체
-            self.showLoginFlow()
+            self.showOnboardFlow()
         }
     }
     
@@ -39,9 +39,25 @@ final class AppCoordinator: Coordinator {
         homeCoordinator.start()
     }
     
-    func showLoginFlow() {
-        let loginCoordinator = OnboardCoordinator(self.navigationController)
-        self.childCoordinators.append(loginCoordinator)
-        loginCoordinator.start()
+    func showOnboardFlow() {
+        let onboardCoordinator = OnboardCoordinator(self.navigationController)
+        self.childCoordinators.append(onboardCoordinator)
+        onboardCoordinator.start()
     }
+}
+
+extension AppCoordinator: CoordinatorFinishDelegate {
+	func coordinatorDidFinish(childCoordinator: Coordinator) {
+		self.childCoordinators.removeAll()
+		self.navigationController.viewControllers.removeAll()
+		
+		switch childCoordinator.type {
+		case .home:
+			self.showOnboardFlow()
+		case .onboard:
+			self.showHomeFlow()
+		default:
+			break
+		}
+	}
 }

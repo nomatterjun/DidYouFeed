@@ -6,6 +6,9 @@
 //
 
 struct AppData {
+	
+	@UserDefault(key: UserDefaultsKey.isLoggedIn, defaultValue: false)
+	static var isLoggedIn: Bool
     
     @UserDefault(key: UserDefaultsKey.userData, defaultValue: User())
     static var userData: User
